@@ -42,21 +42,24 @@ class request
 
     function init()
     {
-        $this->get = $_GET;
-        $this->post = $_POST;
+        $this->get    = $_GET;
+        $this->post   = $_POST;
         $this->server = $_SERVER;
         $this->cookie = $_COOKIE;
 
-        if (!isset($_SERVER['REQUEST_METHOD'])) return;
+        if (!isset($_SERVER['REQUEST_METHOD'])) {
+            return;
+        }
 
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'put' || strtolower($_SERVER['REQUEST_METHOD']) == 'delete') {
             $raw = '';
-            $fp = fopen('php://input', 'r');
+            $fp  = fopen('php://input', 'r');
             while ($kb = fread($fp, 1024)) {
                 $raw .= $kb;
             }
             fclose($fp);
             $this->put['put'] = $raw;
+            parse_str($raw, $this->post);
         }
 
         unset($_GET);
@@ -95,7 +98,7 @@ class request
 
             if (empty($me->put['put'])) {
                 $json = "";
-                $fp = fopen('php://input', 'r');
+                $fp   = fopen('php://input', 'r');
                 while ($kb = fread($fp, 1024)) {
                     $json .= $kb;
                 }
@@ -107,14 +110,14 @@ class request
 
             $data = json_decode($json, 1);
             if (isset($data[0])) {
-                $me->jsonDataList = $data;
+                $me->jsonDataList   = $data;
                 $me->jsonDataOffset = 1;
-                $me->jsonDataSize = count($data);
-                $data = $data[0];
+                $me->jsonDataSize   = count($data);
+                $data               = $data[0];
             } else {
-                $me->jsonDataList = [$data];
+                $me->jsonDataList   = [$data];
                 $me->jsonDataOffset = 1;
-                $me->jsonDataSize = 1;
+                $me->jsonDataSize   = 1;
             }
         }
 
@@ -159,8 +162,8 @@ class request
     {
         if (in_array($type, array('post', 'get', 'server', 'cookie', 'put'))) {
             self::$instance->type = $type;
-            self::$instance->key = $key;
-            $arr = $this->$type;
+            self::$instance->key  = $key;
+            $arr                  = $this->$type;
 
             if (isset($arr[$key])) {
                 self::$instance->val = $arr[$key];
@@ -177,8 +180,8 @@ class request
 
     private function save()
     {
-        $type = $this->type;
-        $arr = &$this->$type;
+        $type            = $this->type;
+        $arr             = &$this->$type;
         $arr[$this->key] = $this->val;
     }
 
@@ -218,7 +221,9 @@ class request
 
     function trim()
     {
-        if (is_null($this->val)) return $this;
+        if (is_null($this->val)) {
+            return $this;
+        }
         $this->val = trim($this->val);
         $this->save();
         return $this;

@@ -10,7 +10,7 @@ class Backup extends Base
             'table_name' => $tableName,
             'content'    => $content,
             'pk'         => $pk,
-            'userId'     => $userId,
+            'user_id'    => $userId,
             'gmt_create' => date('Y-m-d H:i:s')
         ]);
     }

@@ -15,10 +15,10 @@ class base extends action
             'msg'  => $msg
         ];
 
-        header('Access-Control-Allow-Headers: Origin, x-requested-with, Content-Type, Accept,X-Cookie');
-        header('Access-Control-Allow-Credentials: true');
-        header('Access-Control-Allow-Methods: GET,POST,PUT,OPTIONS,DELETE');
-        header('Access-Control-Allow-Origin: *');
+//        header('Access-Control-Allow-Headers: Origin, x-requested-with, Content-Type, Accept,X-Cookie');
+//        header('Access-Control-Allow-Credentials: true');
+//        header('Access-Control-Allow-Methods: GET,POST,PUT,OPTIONS,DELETE');
+//        header('Access-Control-Allow-Origin: *');
         header('Content-type:application/json;charset=utf-8');
 
         echo json_encode($data);

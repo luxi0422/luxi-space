@@ -4,7 +4,6 @@ namespace app\modules\luxi\service;
 
 use app\lib\StringUtil;
 use app\lib\UserException;
-use app\modules\luxi\model\Backup;
 use \app\modules\luxi\model\Message as MessageModel;
 
 class Message
@@ -26,7 +25,7 @@ class Message
         $name = trim($name);
 
         $len = mb_strlen($name, 'utf-8');
-        if ($len < 1 || $len = 20) {
+        if ($len < 1 || $len > 20) {
             throw new UserException("姓名长度应该在1 - 20之间", 410);
         }
 
