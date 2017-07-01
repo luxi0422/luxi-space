@@ -48,7 +48,7 @@ class entry
     /**
      * 框架入口
      */
-    public static function run($paths = [])
+    public static function run($specificPath = [])
     {
         if (!self::init()) {
             return false;
@@ -60,6 +60,9 @@ class entry
         request::getInstance();
         //初始化访问路径信息和请求参数
         list($paths, $last, $extra) = self::getPaths();
+        if (!empty($specificPath)) {
+            $paths = $specificPath;
+        }
 
         $c = APP_NAMESPACE_ROOT . '\\rs\\' . implode('\\', $paths);
 
@@ -114,11 +117,11 @@ class entry
             $paths = array_filter($paths);
         }
 
-        $tmp = [];
+        $tmp    = [];
         $params = false;
-        $key = false;
-        $last = false;
-        $extra = [];
+        $key    = false;
+        $last   = false;
+        $extra  = [];
         foreach ($paths as $k => $path) {
             if ($path[0] == '_') {
                 if (strlen($path) > 1) {
@@ -134,12 +137,12 @@ class entry
                 if ($key) {
                     request::get($key)->setDefault($path, 'empty');
                     $extra[] = $path;
-                    $key = false;
+                    $key     = false;
                 } else if (is_numeric($path)) {
                     request::get('id')->setDefault($path, 'empty');
                     $params = true;
                 } else {
-                    $key = $path;
+                    $key     = $path;
                     $extra[] = $key;
                 }
             }
