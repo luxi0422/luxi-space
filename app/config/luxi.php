@@ -11,7 +11,8 @@ class luxi
             'user'    => 'root',
             'pass'    => 'sdl2382#@',
             'name'    => 'luxi_space',
-            'charset' => 'utf8'
+            'charset' => 'utf8',
+            'port'    => 3306
         ];
     }
 }
