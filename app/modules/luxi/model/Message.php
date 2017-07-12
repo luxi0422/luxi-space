@@ -9,7 +9,7 @@ class Message extends Base
     static function readById($id)
     {
         $id = intval($id);
-        return self::db()->selectOne("select * from message where id = ?", $id);
+        return self::db()->selectOne("select * from message where id = ? order by id desc", $id);
     }
 
     static function read($page, $limit)
