@@ -36,7 +36,12 @@ class Message
             throw new UserException("总得说点啥", 410);
         }
 
-        return MessageModel::create($name, $message);
+        $id = MessageModel::create($name, $message);
+        return [
+            'id'=>$id,
+            'message'=>$message,
+            'name'=>$name
+        ];
     }
 
     public static function delete($id)

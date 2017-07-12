@@ -28,8 +28,8 @@ class message extends base
     {
         $name    = request::post('name')->trim()->val();
         $message = request::post('message')->trim()->val();
-        $id      = MessageService::create($name, $message);
-        $this->jsonResponseSuccess($id);
+        $messageInfo      = MessageService::create($name, $message);
+        $this->jsonResponseSuccess($messageInfo);
     }
 
     function delete()
