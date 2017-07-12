@@ -1,0 +1,49 @@
+body,div,ul,li,a{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+}
+.nav ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-around;
+    max-width: 1060px;
+    margin: 50px auto;
+}
+.nav ul li a{
+    color: dimgray;
+    display: block;
+}
+.nav ul li{
+    width: 25%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 50px;
+}
+.main{
+    max-width:1200px;
+    margin:0 auto;
+}
+.list{
+    float:left;
+    width:30%;
+    border:1px solid black;
+    height:1000px;
+}
+.content{
+    float:right;
+    width:65%;
+    border:1px solid black;
+    height:1000px;
+}
+.edit{
+    max-width:1200px;
+    margin:0 auto;
+    height:300px;
+    border:1px solid black;
+}
