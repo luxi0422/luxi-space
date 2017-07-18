@@ -17,8 +17,8 @@ $("header .nav ul li a").hover(
 var date = new Date();
 $(".date .today").html(date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日");
 //随机事项
-var todoList = ["生孩子", "女装", "开会", "请假", "考试", "擦桌子", "写BUG", "做梦","撸猫","回笼觉","表白"];
-var saying = ["\"研究表明，女装有助于提高代码正确率\"","\"别减肥了，你丑不仅是因为胖。\"", "\"世上无难事只怕有钱人\"", "\"等忙完这一阵，就可以接着忙下一阵了。\""];
+var todoList = ["女装", "撸串", "开会", "请假", "考试", "擦桌子", "写BUG", "做梦","撸猫","回笼觉","表白"];
+var saying = ["\"研究表明，女装有助于提高代码正确率\"", "\"世上无难事只怕有钱人\"", "\"等忙完这一阵，就可以接着忙下一阵了。\""];
 var num = Math.floor(Math.random() * 10000);
 
 //得到一个绑定日期的包含6个随机数的数组
@@ -43,6 +43,8 @@ function getRandomFromTodoList(dateNum) {
     }
     return resultArr;
 }
+
+//把随机数作为下标，将事项写入页面
 var dos = getRandomFromTodoList(dateNum).splice(0,3);
 var donts = getRandomFromTodoList(dateNum).splice(3,3);
 console.log(dos,donts);

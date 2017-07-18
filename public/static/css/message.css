@@ -14,6 +14,8 @@ body{
     width:60%;
     padding-top:50px;
     padding-left:100px;
+    max-height:750px;
+    overflow:hidden;
 }
 form input,form textarea{
     border:none;
@@ -25,7 +27,7 @@ form input,form textarea{
 }
 form input:first-child{
     width:100px;
-    height:20px;
+    height:40px;
     word-break: break-all;
     float:left;
 }
@@ -41,52 +43,73 @@ form input:last-of-type{
     margin-left:2px;
     cursor:pointer;
 }
-form input:last-child:hover{
-    color:red;
+form input:last-of-type:hover{
+    color:#FA8072;
 }
-.vertical{
-    float:left;
-    width:80px;
-    height:10px;
-    border-bottom:1px solid gray;
+.wrapper .message-background{
+    margin:-30px;
+    position:absolute;
+    z-index:0;
+    background-color:#000;
+    width:700px;
+    height:100%;
+    opacity: 0.2;
+}
+.data,form{
+    position:relative;
+    z-index: 1;
 }
 .data .message{
     margin-top:30px;
 }
-.data div{
-    border-radius:5px;
+.data .name, .data .words{
+    border-radius:6px;
+    box-shadow: 1px 3px 3px #6e756c;
+    color: #111;
+    opacity: 0.8;
+}
+.vertical{
+    float:left;
+    width:80px;
+    margin-top:20px;
+    border-bottom:1px solid gray;
+    box-shadow: 1px 1px #fff;
 }
 .data .name{
     width:100px;
     background-color:#fff;
     float:left;
     box-sizing: border-box;
-    padding:5px;
+    padding:10px;
+    text-align: center;
 }
 .data .words{
-    width:400px;
+    max-width:400px;
     background-color:#fff;
     float:left;
     box-sizing:border-box;
-    padding:5px;
+    padding:10px;
 }
 ul{
     float:right;
     width:30%;
-    margin-top:50px;
+    margin-top:100px;
 }
 ul li{
     list-style: none;
-    font-size: 50px;
+    font-size: 5rem;
 }
 ul li a{
     text-decoration: none;
     color:#fff;
-    opacity:.4;
+    text-shadow: 1px 1px #000;
 }
 ul li.line{
     width:50px;
     height:50px;
     border-right:3px solid #fff;
     opacity:.4;
+}
+ul li a:hover{
+    color:#FA8072;
 }

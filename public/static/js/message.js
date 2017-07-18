@@ -1,16 +1,4 @@
-//导航栏悬浮效果
-$(".bg ul li a").hover(
-    function () {
-        $(this).stop().animate({
-            "opacity": ".8"
-        }, 300);
-    },
-    function () {
-        $(this).stop().animate({
-            "opacity": ".5"
-        }, 300);
-    }
-);
+//ajax从数据库读取留言数据
 var $dataDom = $(".data");
 var messageTpl = $('#message-tpl').html();
 $.getJSON('http://luxi.space/api/message?limit=10',function(data){
@@ -19,6 +7,7 @@ $.getJSON('http://luxi.space/api/message?limit=10',function(data){
     }
 });
 
+//插入一条新留言时显示在留言列表顶端
 function insertMessage(messageInfo, needAnimate) {
     var messageHtml = messageTpl.replace(/\{\{(.+?)\}\}/g,function($0, $1){
         return messageInfo[$1];
@@ -33,6 +22,7 @@ function insertMessage(messageInfo, needAnimate) {
     }
 }
 
+//点击提交时，向数据库传参
 $("form").submit(function(){
     var messageInfo = {
         name: $("form input:first-child").val(),
@@ -46,7 +36,6 @@ $("form").submit(function(){
             insertMessage(obj.data, true);
             $("textarea").val("");
         }
-
     },'json');
     return false;
 });
