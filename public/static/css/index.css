@@ -9,10 +9,11 @@ a{
 	text-decoration: none;
 }
 body{
-	background: url("../image/bg_main.JPG") no-repeat;
+	background: url("../image/bg_main.JPG") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
-	background-position: 0 -30px;
-	overflow:hidden;
 }
 header .nav{
 	width: 100%;
@@ -33,18 +34,11 @@ header .nav ul li{
 	width: 25%;
 	line-height: 50px;
 	text-align: center;
-	font-size: 50px;
+	font-size: 3rem;
+	padding:0 5px;
+	box-sizing:border-box;
 }
-main .date {
-    background: black;
-    opacity: .3;
-    color: #fff;
-    max-width: 400px;
-    margin-top: 150px;
-    margin-left: 15%;
-    padding: 20px 20px;
-    text-align:center;
-}
+
 main .date ul span{
     float:left;
     font-size:25px;
@@ -53,20 +47,31 @@ main .date ul li{
     float:left;
     font-size:25px;
 }
-@media screen and(max-width:768px){
-	body {
-		background: url("../image/bg_main.JPG") no-repeat;
-		background-size: 30%;
-		background-position: 0 -30px;
+
+@media screen and (min-width:768px){
+	main .date {
+		background: black;
+		opacity: .3;
+		color: #fff;
+		max-width: 400px;
+		margin-top: 150px;
+		margin-left: 15%;
+		padding: 20px 20px;
+		text-align:center;
 	}
-	main .date{
-		max-width:80%;
+}
+
+@media screen and (max-width:768px){
+	main .date {
+		padding:50px 0;
+		width:100%;
+		background-color: black;
+		opacity: .3;
+		color: #fff;
+		text-align:center;
+	}
+	main .date ul{
+		width:80%;
 		margin:0 auto;
-	}
-	main .date ul li{
-		font-size:15px;
-	}
-	main .date ul li{
-		font-size:15px;
 	}
 }
