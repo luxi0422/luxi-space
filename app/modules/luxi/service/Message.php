@@ -36,12 +36,13 @@ class Message
             throw new UserException("总得说点啥", 410);
         }
 
+        $len = mb_strlen($message, 'utf-8');
+        if ($len < 1 || $len > 1000) {
+            throw new UserException("留言内容长度在1-1000之间", 410);
+        }
+
         $id = MessageModel::create($name, $message);
-        return [
-            'id'=>$id,
-            'message'=>$message,
-            'name'=>$name
-        ];
+        return MessageModel::readById($id);
     }
 
     public static function delete($id)
