@@ -62,6 +62,9 @@ main .date ul li{
 }
 
 @media screen and (max-width:768px){
+	header .nav ul li{
+		font-size:24px;
+	}
 	main .date {
 		padding:50px 0;
 		width:100%;

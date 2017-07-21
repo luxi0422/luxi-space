@@ -8,19 +8,23 @@ body{
 ul{
     display:flex;
     flex-flow:row nowrap;
-    justify-content:space-between;
-    width:70%;
+    justify-content:space-around;
+    line-height:80px;
+    width:60%;
     margin: 20px auto;
+    height:80px;
+    background: url("../image/message_bg.png") no-repeat center center;
+    padding:0 10%;
+    box-sizing: border-box;
 }
 ul li{
     float:left;
     list-style: none;
-    font-size: 3rem;
+    font-size: 3vw;
 }
 ul li a{
     text-decoration: none;
-    color:#FA8072;
-    text-shadow: 1px 1px #000;
+    color:#FFF;
 }
 ul li.line{
     width:50px;
@@ -72,6 +76,7 @@ ul li.line{
     float:right;
     color:#888;
     font-size:14px;
+    margin-top:5px;
 }
 .wrapper .pages{
     border:1px solid lightcoral;
@@ -81,4 +86,92 @@ ul li.line{
     padding:10px;
     text-align:center;
     cursor:pointer;
+}
+.login{
+    height:64px;
+    width:64px;
+    background:url("../../static/image/btfly_1.png");
+    top:30%;
+    left:5%;
+    transform:rotatez(25deg);
+    position:fixed;
+    cursor:pointer;
+}
+.login-z{
+    height:60px;
+    width:60px;
+    top:30%;
+    left:5%;
+    position:fixed;
+    cursor:pointer;
+    line-height:30px;
+    text-align:center;
+    display:none;
+    color:salmon;
+    font-weight:bold;
+    border:1px solid salmon;
+}
+.top{
+    height:64px;
+    width:64px;
+    background:url("../../static/image/btfly_2.png");
+    top:50%;
+    left:85%;
+    transform:rotatez(215deg);
+    position:fixed;
+    cursor:pointer;
+}
+.top-z{
+    height:60px;
+    width:60px;
+    top:50%;
+    left:85%;
+    position:fixed;
+    cursor:pointer;
+    line-height:30px;
+    text-align:center;
+    display:none;
+    color:salmon;
+    font-weight:bold;
+    border:1px solid salmon;
+}
+.adminLogin{
+    width:200px;
+    height:150px;
+    border:1px solid salmon;
+    background-color:#F0F7FC;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    font-size:16px;
+    display:none;
+}
+.adminLogin div{
+    font-size:20px;
+    float:right;
+    padding:5px 5px;
+    cursor:pointer;
+}
+.adminLogin p{
+    margin-top:30px;
+    font-weight:bold;
+}
+.adminLogin form input:last-of-type{
+    background:none;
+    border:1px solid salmon;
+    outline:none;
+    height:25px;
+    width:50px;
+    margin-top:10px;
+    cursor:pointer;
+}
+@media screen and (max-width:768px){
+    .bg ul li{
+        font-size: 20px;
+    }
+    .bg ul{
+        padding:0;
+    }
 }
