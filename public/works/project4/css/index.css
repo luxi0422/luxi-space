@@ -1,0 +1,361 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+.clear{
+	clear: both;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.header-bg{
+	min-width: 960px;
+	height:80px;
+	background: #C2C2C2;
+}
+.header{
+	width: 960px;
+	height: 80px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+}
+.header .logo{
+	height: 80px;
+	width: 260px;
+	background-image: url(../images/logo.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	position: relative;
+}
+.header ul.list{
+	width: 260px;
+	height: 200px;
+	position: absolute;
+	top: 80px;
+}
+.header ul.list li{
+	list-style: none;
+	color: #25782C;
+	background: #C2C2C2;
+	border-bottom: 1px dotted gray;
+	line-height: 40px;
+	letter-spacing: 5px;
+	font-size: 20px;
+	padding-left: 10px;
+}
+.header .search input{
+	width: 400px;
+	height: 31px;
+	margin-top: 24px;
+	margin-left: 50px;
+	border: none;
+	outline: none;
+}
+.header .search button{
+	height: 32px;
+	width: 50px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	color: gray;
+}
+.header .register div{
+	background-color: #DDD;
+	color: gray;
+	height: 32px;
+	width: 50px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 32px;
+	cursor: pointer;
+	margin-top: 24px;
+	font-size: 14px;
+}
+.header .register div.login{
+	margin-left: 50px;
+}
+.header .register div.regist{
+	margin-left: 20px;
+}
+.header .register .login .login-here{
+	border: 1px solid gray;
+	border-radius: 8px;
+	background: white;
+	width: 120px;
+	height: 120px;
+	padding-top: 10px;
+	cursor: auto;
+}
+.header .register .login .login-here input{
+	width: 80px;
+	height: 20px;
+}
+.header .register .login .login-here button{
+	height: 28px;
+	width: 50px;
+	margin-top: 10px;
+}
+.header .register .regist-here{
+	border: 1px solid gray;
+	border-radius: 8px;
+	background: white;
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	left: 280px;
+	cursor: auto;
+	line-height: 50px;
+	font-size: 16px;
+	padding-top: 20px;
+	text-align: left;
+	padding-left: 50px;
+	box-sizing: border-box;
+}
+.header .register .regist-here span{
+	color: red;
+}
+.header .register .regist-here .inp1{
+	width: 152px;
+}
+.header .register .regist-here .inp4{
+	width: 138px;
+}
+.header .register .regist-here button{
+	height: 32px;
+	width: 50px;
+}
+.header .register .regist-here .back{
+	float: right;
+	margin-right: 200px;
+	margin-top: 10px;
+	border: 1px solid gray;
+	color: black;	
+	border-radius: 0;
+}
+.body .nav{
+	min-width: 960px;
+	background-color: #32516E;
+}
+.body .nav .navi{
+	width: 960px;
+	margin: 0 auto;
+	height: 60px;
+	color: white;
+}
+.body .nav li{
+	list-style: none;
+}
+.body .nav ul.navi>li{
+	float: left;
+	text-align: center;
+	width: 192px;
+	line-height: 60px;
+	font-size: 20px;
+	background-color: #32516E;
+	cursor: pointer;
+	position: relative;
+}
+.body .nav ul.navi>li ul{
+	display: none;
+	z-index: 1;
+	position: absolute;
+	background-color: gray;
+	width: 192px;
+}
+.body .nav ul.navi>li ul li{
+	border-top: 1px dotted #32516E;
+}
+.body .mid{
+	width: 960px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.body .mid .ads{
+	width: 578px;
+	height: 435px;
+	z-index: -1;
+	float: left;
+}
+.body .mid .ads .imglist{
+	width: 100%;
+	height: 100%;
+}
+.body .mid .ads .imglist a{
+	width: 578px;
+	height: 435px;
+	display: inline-block;
+	display: none;
+}
+.body .mid .ads .imglist img{
+	top: 0;
+	left: 0;
+	
+}
+.body .mid .ads .imglist a.active{
+	display: block;
+}
+.body .mid .ads .spanlist{
+	bottom: 20px;
+	margin-left: 200px;
+	margin-top: -30px;
+}
+.body .mid .ads .spanlist span{
+	display: inline-block;
+	width:20px;
+	height:20px;
+	border-radius: 10px;
+	background-color: white;
+	cursor: pointer;
+}
+.body .mid .ads .spanlist span.active{
+	background-color: red;
+}
+.body .mid .box{
+	width: 350px;
+	height: 425px;
+	border: 5px solid rgb(247,202,201);
+	color: rgb(146,168,209);
+	border-radius: 8px;
+	float: left;
+	margin-left: 15px;
+	z-index: -1;
+	font-size: 24px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+.body .mid .box p{
+	margin-top: 50px;
+}
+.body .recommend{
+	width:960px;
+	margin:0 auto;
+}
+.body .recommend>div{
+	margin-top:10px;
+}
+.body .recommend li{
+	float:right;
+	background-color:white;
+	list-style: none;
+}
+.body .recomment span{
+	font-size:16px;
+}
+.body .recommend p.fl{
+	font-size:24px;
+	color:#333;
+	padding:50px 0 30px 0;
+}
+.body .recommend p.fr{
+	font-size:16px;
+	padding-top:70px;
+}
+.body .recommend p a{
+	color:#333;
+}
+.body .recommend ul{
+	width:960px;
+}
+.body .recommend li{
+	width:220px;
+	height:340px;
+	margin-left:10px;
+	margin-bottom:10px;
+	border:1px solid #DCDCDC;
+	text-align: center;
+	float: left;
+}
+.body .recommend li img{
+	margin:20px 26px;
+}
+.body .recommend li p:first-of-type{
+	color:#333;
+	font-size:14px;
+}
+.body .recommend li p:nth-of-type(2){
+	color:#9FA0A0;
+}
+.body .recommend li p:last-of-type{
+	color:#C10001;
+	font-size:14px;
+	margin-top:10px;
+}
+.body .recommend li:hover{
+	box-shadow:0px 0px 0px #F6F6F6 inset;
+}
+.body .recommend li p span{
+	text-decoration: line-through;
+	font-size: 12px;
+	color:#9FA0A0;
+}
+.body .recommend>a>img{
+	border:1px solid #ccc;
+}
+.body .recommend li div{
+	width:230px;
+	height:65px;
+	background-color:#F76A6A;
+	color:rgba(255,255,255,.8);
+	padding:5px 5px;
+	box-sizing: border-box;
+	font-size:14px;
+	display:none;
+}
+.body .recommend li.access-2:hover>div.access-2{
+	display:block;
+}
+.body .recommend li.access-3:hover>div.access-3{
+	display:block;
+}
+.body .recommend li.access-4:hover>div.access-4{
+	display:block;
+}
+.body .recommend li.access-5:hover>div.access-5{
+	display:block;
+}
+.footer-bg{
+	min-width: 960px;
+	background-color: #C2C2C2;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+}
+.footer{
+	width: 960px;
+	margin: 0 auto;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+}
+.footer span{
+	width: 188px;
+	font-size: 20px;
+	display: inline-block;
+}
+.footer a{
+	color: #25782C;
+}
+.footer a:hover{
+	color: black;
+}
+.totop{
+	width: 50px;
+	height: 50px;
+	background: #32516E;
+	position: fixed;
+	right: 100px;
+	bottom: 20px;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五一作业</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="header-bg">
+		<div class="header">
+			<div class="logo fl">
+				<ul class="list" style="display:none">
+					<li>虽然不知道</li>
+					<li>这个菜单</li>
+					<li>能用来干啥</li>
+					<li>但还是</li>
+					<li>做个样式吧</li>
+				</ul>
+			</div>
+			<div class="search fl">
+				<form action="#" method="get">
+					<input type="text" name="search" placeholder="请输入您想搜索的内容"><button type="submit">搜索</button>
+				</form>
+			</div>
+			<div class="register fl">
+				<div class="login fl">登录
+					<div class="login-here" style="display:none">
+						<form action="#" method="get">
+							<input type="text" name="username" placeholder="用户名"><br>
+							<input type="password" name="pwd" placeholder="密码"><br>
+							<button type="submit">登录</button>
+						</form>
+					</div>
+				</div>
+				<div class="regist fl">注册
+					<div class="regist-here" style="display:none">
+						<form name="myform" action="#" method="get" onsubmit="return checkForm()">
+							用户名：<input class="inp1" type="text" name="username"><span id="p1"></span><br>
+							密码：<input class="inp2" type="password" name="pwd"><span id="p2"></span><br>
+							邮箱：<input class="inp3" type="text" name="email"><span id="p3"></span><br>
+							电话号码：<input class="inp4" type="text" name="tel"><span id="p4"></span><br>
+							<button>提交</button>
+							<div class="back">取消</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="body">
+		<div class="nav">
+			<ul class="navi">
+				<li class="option">电器商城
+					<ul id="ul0">
+						<a href=""><li>冰箱
+							<ul>
+							<a href=""><li>西门子</li></a>
+							<a href=""><li>海尔</li></a>
+							</ul>
+						</li></a>
+						<a href=""><li>电视
+							<ul>
+							<a href=""><li>松下</li></a>
+							<a href=""><li>海信</li></a>
+							</ul>
+						</li></a>
+						<a href=""><li>洗衣机
+							<ul>
+							<a href=""><li>海尔</li></a>
+							<a href=""><li>三菱</li></a>
+							</ul>
+						</li></a>
+					</ul>
+				</li>
+				<li class="option">运动用品
+					<ul id="ul1">
+						<a href=""><li>跳绳</li></a>
+						<a href=""><li>球类</li></a>
+						<a href=""><li>自行车</li></a>
+					</ul>
+				</li>
+				<li class="option">流行时尚
+					<ul id="ul2">
+						<a href=""><li>化妆品</li></a>
+						<a href=""><li>饰品</li></a>
+					</ul>
+				</li>
+				<li class="option">生鲜市场
+					<ul id="ul3">
+						<a href=""><li>冰鲜海鲜</li></a>
+						<a href=""><li>蔬菜</li></a>
+						<a href=""><li>水果</li></a>
+					</ul>
+				</li>
+				<li class="option">百货餐厨
+					<ul id="ul4">
+						<a href=""><li>收纳箱</li></a>
+						<a href=""><li>桌椅</li></a>
+						<a href=""><li>碗筷</li></a>
+					</ul>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class=mid>
+			<div class="ads">
+				<div class="imglist">
+					<a href="#" class="active"><img src="images/1.png"></a>
+					<a href="#"><img src="images/2.png"></a>
+					<a href="#"><img src="images/3.png"></a>
+					<a href="#"><img src="images/4.png"></a>
+					<a href="#"><img src="images/5.png"></a>
+				</div>
+				<div class="spanlist">
+					<span class="active"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<div class="box">
+				<p>万年历</p>
+				<div id="time">
+					<span id="hour"></span>
+					<span id="minute"></span>
+					<span id="second"></span>
+				</div>
+				<div id="date">
+					<span id="week"></span><br>
+					<span id="day"></span>
+				</div>
+				<p id="stamp"></p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="recommend">
+			<div>
+				<p class="fl">小辣椒小辣椒到处都是小辣椒</p>
+				<div class="clear"></div>
+			</div>
+				<a href="#"><img class="banner2" src="images/banner-2.jpg" alt=""></a>
+				<a href="#"><img src="images/banner-3.jpg" alt=""></a>
+			<ul class="fr">
+				<li>
+					<a href="#">
+					<img src="images/recommend-5.png" alt="">
+					<p>红辣椒任性版Max</p>
+					<p>爆款升级不加价</p>
+					<p>￥349<span>￥399</span></p></a>
+				</li>
+				<li>
+					<a href="#">
+					<img src="images/recommend-6.png" alt="">
+					<p>红辣椒老人机K2</p>
+					<p>贴心的老人智能系统，高性价比</p>
+					<p>￥459<span>￥499</span></p></a>
+				</li>
+				<li>
+					<a href="#">
+					<img src="images/recommend-7.png" alt="">
+					<p>小辣椒Note3</p>
+					<p>高配高性价比之选</p>
+					<p>￥599<span>￥699</span></p></a>
+				</li>
+				<li>
+					<a href="#">
+					<img src="images/recommend-8.png" alt="">
+					<p>红辣椒经典一代</p>
+					<p>安全·稳定·高效系统</p>
+					<p>￥499<span>￥599</span></p></a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+			<div class="clear"></div>
+			
+		</div>
+	</div>
+	<div class="footer-bg">
+		<div class="footer">
+			<a href="#"><span>关于我们</span></a>
+			<a href="#"><span>联系我们</span></a>
+			<a href="#"><span>广告合作</span></a>
+			<a href="#"><span>意见反馈</span></a>
+			<a href="#"><span>备案信息</span></a>
+		</div>
+	</div>
+	<div class="totop">回到顶部</div>
+	<script src="js/index.js"></script>
+</body>
+</html>
