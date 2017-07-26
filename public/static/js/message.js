@@ -24,8 +24,6 @@ function insertMessage(messageInfo, needAnimate) {
 
 //点击提交
 $("form").submit(function(){
-    var date = new Date();
-    var time = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
     var messageInfo = {
         name: $("form input:first-child").val(),
         message: $("textarea").val()
@@ -58,7 +56,6 @@ $("form").submit(function(){
             success: function (response) {
                 var result = "";
                 var data = response.data.list;
-                console.log(page,limit);
                 for (var i = 0; i < data.length; i++) {
                     result += '<div class="message"><div class="name">'+data[i].name+'：</div><div class="words">'+data[i].message+'</div><div class="date">'+data[i].gmt_create+'</div></div>';
                 }
@@ -76,7 +73,7 @@ $("form").submit(function(){
         });
     }
 
-    //回到顶端【还有重复执行的BUG】
+    //回到顶端
 var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 $(".top").mouseenter(
     function(){

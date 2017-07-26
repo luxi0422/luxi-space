@@ -1,0 +1,243 @@
+body{
+    background:#F5FFFA;
+}
+.nav ul{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-around;
+    line-height:80px;
+    width:60%;
+    margin: 20px auto;
+    height:80px;
+    background: url("../image/bg_work.png") no-repeat center center;
+    padding:0 10%;
+    box-sizing: border-box;
+}
+.nav ul li{
+    float:left;
+    list-style: none;
+    font-size: 3vw;
+}
+.nav ul li a{
+    text-decoration: none;
+    color:#FFF;
+}
+.main {
+    width:70%;
+    margin:50px auto;
+}
+.main .list{
+    width: 70%;
+    float:left;
+}
+.main .list h1{
+    font-size:20px;
+    font-weight:bold;
+    border-bottom:5px solid #B2DFEE;
+    line-height:30px;
+    padding-left:10px;
+}
+.main .list .works{
+    padding:30px 0;
+    border-bottom:1px solid #ccc;
+    display:flex;
+    flex-flow:row nowrap;
+}
+.main .list .works .image{
+    width:30%;
+    height:250px;
+    padding-left:20px;
+    cursor:pointer;
+    overflow:hidden;
+}
+.main .list .works img{
+    width:200px;
+    transition:all 0.6s;
+}
+.main .list .works img:hover{
+    transform:scale(1.2);
+}
+.main .list .works .workDetail{
+    padding-left:20px;
+    width:60%;
+}
+.main .list .works .workDetail h2{
+    color:#474645;
+    font-size:18px;
+}
+.main .list .works .workDetail h2 a:hover{
+    color:#4D96A6;
+}
+.main .list .works .workDetail p{
+    color:#756F71;
+}
+.main .deco{
+    width:25%;
+    height:500px;
+    background:url("../../static/image/balloon.png") no-repeat;
+    background-size:contain;
+    position:fixed;
+    left:65%;
+}
+.main .sidebar{
+    width:20%;
+    height:450px;
+    position:fixed;
+    top:20%;
+    left:65%;
+    border-radius:20px;
+    display:none;
+}
+.main .sidebar .sideNav{
+    width:70%;
+    text-align:center;
+    position:fixed;
+    top:60%;
+    left:40%;
+}
+.main .sidebar .sideNav li{
+    margin:20px 0;
+}
+.main .sidebar .sideNav ul li a{
+    color:#808080;
+    font-size:30px;
+    font-weight:bold;
+}
+.main .sidebar .sideNav ul li a:hover{
+    color:#4D96A6;
+}
+.login{
+    height:64px;
+    width:64px;
+    background:url("../../static/image/btfly_1.png");
+    transform:rotatez(25deg);
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    left:20%;
+}
+.login-z{
+    height:60px;
+    width:60px;
+    cursor:pointer;
+    line-height:30px;
+    text-align:center;
+    display:none;
+    color:#808080;
+    font-weight:bold;
+    border:1px solid #808080;
+    position:absolute;
+    top:50%;
+    left:20%;
+}
+.top{
+    height:64px;
+    width:64px;
+    background:url("../../static/image/btfly_2.png");
+    transform:rotatez(215deg);
+    cursor:pointer;
+    position:absolute;
+    top:35%;
+    left:65%;
+}
+.top-z{
+    height:60px;
+    width:60px;
+    cursor:pointer;
+    line-height:30px;
+    text-align:center;
+    display:none;
+    color:#808080;
+    font-weight:bold;
+    border:1px solid #808080;
+    position:absolute;
+    top:35%;
+    left:65%;
+}
+.adminLogin{
+    width:200px;
+    height:150px;
+    border:1px solid #FA8072;
+    background-color:#F0F7FC;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    font-size:16px;
+    display:none;
+}
+.adminLogin div{
+    font-size:20px;
+    float:right;
+    padding:5px 5px;
+    cursor:pointer;
+}
+.adminLogin p{
+    margin-top:30px;
+    font-weight:bold;
+}
+.adminLogin form input:last-of-type{
+    background:none;
+    border:1px solid #FA8072;
+    outline:none;
+    height:25px;
+    width:50px;
+    margin-top:10px;
+    cursor:pointer;
+}
+.main .sidebarSmall{
+    display:none;
+}
+@media (max-width:768px){
+    .nav ul li{
+        font-size: 20px;
+    }
+    .nav ul{
+        padding:0;
+        position:fixed;
+        top:0;
+        width:100%;
+        background:#B2DFEE;
+        margin:0;
+        line-height:50px;
+        height:50px;
+        z-index:10;
+    }
+    .main .list{
+        width:100%;
+        margin:0 auto;
+    }
+    .main .list .works{
+        display:block;
+    }
+    .main .list .works .image{
+        width:100%;
+        padding:0;
+        text-align:center;
+    }
+    .main .list .works .workDetail{
+        width:100%;
+        padding:0;
+        text-align:center;
+    }
+    .main .sidebar{
+        display:none;
+    }
+    .main .deco{
+        display:none;
+    }
+    .main .sidebarSmall{
+        display:block;
+    }
+    .main .sidebarSmall .login,.main .sidebarSmall .login-z{
+        position:fixed;
+        top:50%;
+        left:5%;
+    }
+    .main .sidebarSmall .top,.main .sidebarSmall .top-z{
+        position:fixed;
+        top:60%;
+        left:80%;
+    }
+}
