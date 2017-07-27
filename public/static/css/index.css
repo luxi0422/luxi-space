@@ -29,6 +29,7 @@ header .nav ul li a{
 	opacity:.5;
 	color: #fff;
 	display: block;
+	font-weight:bold;
 }
 header .nav ul li{
 	width: 25%;

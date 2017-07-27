@@ -1,0 +1,134 @@
+body{
+    background:#fffde4 url("../../static/image/bg_spacevt.jpg") repeat-x;
+}
+.wrapper{
+    background:url("../../static/image/bg_space.jpg") no-repeat;
+}
+.nav{
+    width:80%;
+    margin:0 auto;
+    box-sizing:border-box;
+    padding-top:50px;
+}
+.nav ul{
+
+    padding:15px 0;
+    text-align:center;
+}
+.nav ul li{
+    width:20%;
+}
+.nav ul li a{
+    color:#26606D;
+    font-size:40px;
+    font-weight:bold;
+}
+.nav ul li form input{
+    border:none;
+    outline:none;
+    padding:5px 0;
+}
+.nav ul li form input:first-child{
+    width:70%;
+}
+.nav ul li form input:last-child{
+    width:20%;
+    cursor:pointer;
+}
+.main{
+    width:80%;
+    margin:0 auto;
+    margin-top:100px;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-around;
+}
+.main .content{
+    width:70%;
+}
+.main .content .switch .life,.work{
+    float:left;
+    padding:10px 40px;
+    color:#505050;
+}
+.main .content .tabs{
+    margin-top:50px;
+    border-bottom:5px solid #D3D3D3;
+}
+.main .content .switch .life{
+    background:#FFE4E1;
+}
+.main .content .switch .work{
+    background:#E6E6FA;
+}
+.main .sidebar{
+    width:30%;
+    margin-top:100px;
+}
+.main .sidebar .sideNav{
+    height:100px;
+    width:80%;
+    margin:0 auto;
+    text-align:center;
+    line-height:50px;
+
+}
+.main .sidebar .sideNav div{
+    height:50px;
+    width:50%;
+    float:left;
+}
+.main .sidebar .sideNav a{
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+}
+.main .sidebar .sideNav a:hover{
+    border-bottom:1px solid #fff;
+}
+.main .sidebar .sideNav div:first-child{
+    background:#F0DB4F;
+}
+.main .sidebar .sideNav div:nth-child(2){
+    background:#3399CC;
+}
+.main .sidebar .sideNav div:nth-child(3){
+    background:	#CF4646;
+}
+.main .sidebar .sideNav div:last-child{
+    background:	#4CAF50;
+}
+.main .sidebar .sideTabs{
+    width:80%;
+    height:300px;
+    border:1px solid black;
+    margin:40px auto;
+    border-radius:3px;
+}
+.main .sidebar .sideNews{
+    width:80%;
+    margin:0 auto;
+}
+.main .sidebar .sideNews p,.main .sidebar .sideTime p:first-child{
+    border-bottom:3px solid #D3D3D3;
+    padding:10px 0;
+    font-weight:bold;
+    color:#505050;
+}
+.main .sidebar .sideNews li{
+    margin:10px 0;
+}
+.main .sidebar .sideNews a:hover{
+    text-decoration:underline;
+}
+.main .sidebar .sideTime{
+    width:80%;
+    margin:50px auto;
+}
+.main .sidebar .sideTime .btn{
+    cursor:pointer;
+    border-radius:5px;
+    border:1px solid gray;
+    padding:5px 5px;
+    display:inline-block;
+}
