@@ -18,6 +18,17 @@ var vm = new Vue({
     router
 }).$mount(".switch");
 
+
+//导航栏滚动改变
+window.onscroll = function(){
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    if(scrollTop > 120 && screen.width > 768 && $(window).width() > 768){
+        $(".main .sidebar .sideNav").css("display","block");
+    }else if(scrollTop <= 120 && screen.width > 768 && $(window).width() > 768){
+        $(".main .sidebar .sideNav").css("display","none");
+    }
+};
+
 //时钟
 function t(){
     var date = new Date();
@@ -72,3 +83,6 @@ function play(){
         timer = setInterval(t,1000);
     }
 }
+
+//分页
+$('#pageTool').Paging({pagesize:10,count:100});
