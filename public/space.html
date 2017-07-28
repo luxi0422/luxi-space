@@ -32,15 +32,33 @@
                         <router-link to="/work"><div class="work">学习</div></router-link>
                         <div style="clear:both"></div>
                     </div>
-
                     <router-view></router-view>
                 </div>
                 <template id="lifeTemp">
-                    <div>111</div>
+                    <div class="section">
+                        <div class="image"><img src=""></div>
+                        <div class="details">
+                            <h2><a href="#">{{title}}</a></h2>
+                            <p>发布时间：{{title}}</p>
+                            <p>{{article}}</p>
+                            <span>分类：{{tabs}}</span>
+                            <div><a href="#">阅读原文</a></div>
+                        </div>
+                    </div>
                 </template>
                 <template id="workTemp">
-                    <div>2222</div>
+                    <div class="section">
+                        <div class="image"><a href="#"><img src="./static/image/test.jpg"></a></div>
+                        <div class="details">
+                            <h2><a href="#">TEST</a></h2>
+                            <p>发布时间：2016年7月27日</p>
+                            <p>这是一段示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，</p>
+                            <p>分类：学习</p>
+                            <div><a href="#">阅读原文</a></div>
+                        </div>
+                    </div>
                 </template>
+                <div id="pageTool"></div>
             </div>
             <div class="sidebar">
                 <div class="sideNav">
@@ -75,6 +93,8 @@
     <script src="static/js/vue.js"></script>
     <script src="static/js/vue-router.js"></script>
     <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/query.js"></script>
+    <script src="static/js/paging.js"></script>
     <script src="static/js/space.js"></script>
 </body>
 </html>
