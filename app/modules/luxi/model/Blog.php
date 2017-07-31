@@ -55,7 +55,7 @@ class Blog extends Base
         }
     }
 
-    static function create($subject, $content, $tags, $categoryId)
+    static function create($subject, $content, $categoryId, $tags)
     {
         return self::db()->insertEx(self::TABLE_NAME, [
             'subject'     => $subject,
@@ -72,7 +72,7 @@ class Blog extends Base
         return self::db()->delete("delete from " . self::TABLE_NAME . " where id = ?", $id);
     }
 
-    public static function update($id, $subject, $content, $tags, $categoryId)
+    public static function update($id, $subject, $content, $categoryId, $tags)
     {
         return self::db()->updateEx(self::TABLE_NAME, [
             'subject'      => $subject,
