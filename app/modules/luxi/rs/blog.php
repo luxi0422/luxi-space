@@ -19,7 +19,7 @@ class blog extends base
         $tag        = request::get('tag')->trim()->val();
 
         if (!empty($tag)) {
-            $result = BlogService::read($page, $categoryId, $limit);
+            $result = BlogService::readByTag($page, $tag, $limit);
         } else {
             $result = BlogService::read($page, $categoryId, $limit);
         }
@@ -36,8 +36,9 @@ class blog extends base
         $this->checkLogin();
         $subject    = request::post('subject')->trim()->val();
         $content    = request::post('content')->trim()->val();
+        $tags       = request::post('tags')->trim()->val();
         $categoryId = request::post('cateogry_id')->int()->val();
-        $blogInfo   = BlogService::create($subject, $content, $categoryId);
+        $blogInfo   = BlogService::create($subject, $content, $categoryId, $tags);
         $this->jsonResponseSuccess($blogInfo);
     }
 
@@ -46,9 +47,10 @@ class blog extends base
         $this->checkLogin();
         $subject    = request::post('subject')->trim()->val();
         $content    = request::post('content')->trim()->val();
+        $tags       = request::post('tags')->trim()->val();
         $categoryId = request::post('cateogry_id')->int()->val();
         $id         = request::post('id')->int()->val();
-        $blogInfo   = BlogService::update($id, $subject, $content, $categoryId);
+        $blogInfo   = BlogService::update($id, $subject, $content, $categoryId, $tags);
         $this->jsonResponseSuccess($blogInfo);
     }
 

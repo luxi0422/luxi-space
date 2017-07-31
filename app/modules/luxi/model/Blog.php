@@ -12,9 +12,19 @@ class Blog extends Base
         return self::db()->selectOne("select * from " . self::TABLE_NAME . " where id = ? order by id desc", $id);
     }
 
-    static function readByTag($tag)
+    static function readByTag($page, $tag = 0, $limit = 20)
     {
+        $page  = max(1, $page);
+        $limit = max(1, $limit);
+        $tag   = trim($tag);
+        $start = ($page - 1) * $limit;
+        return self::db()->select("select * from " . self::TABLE_NAME . "
+             where tags like ? order by id desc limit $start,$limit", "%$tag%");
+    }
 
+    static function countByTag($tag)
+    {
+        return self::db()->getOne("select count(*) from " . self::TABLE_NAME . " where tags like ? ", "%$tag%");
     }
 
     static function read($page, $categoryId = 0, $limit = 20)
@@ -45,12 +55,13 @@ class Blog extends Base
         }
     }
 
-    static function create($subject, $content, $categoryId)
+    static function create($subject, $content, $tags, $categoryId)
     {
         return self::db()->insertEx(self::TABLE_NAME, [
             'subject'     => $subject,
             'content'     => $content,
             'category_id' => $categoryId,
+            'tags'        => $tags,
             'gmt_create'  => date('Y-m-d H:i:s')
         ]);
     }
@@ -61,12 +72,13 @@ class Blog extends Base
         return self::db()->delete("delete from " . self::TABLE_NAME . " where id = ?", $id);
     }
 
-    public static function update($id, $subject, $content, $categoryId)
+    public static function update($id, $subject, $content, $tags, $categoryId)
     {
         return self::db()->updateEx(self::TABLE_NAME, [
             'subject'      => $subject,
             'content'      => $content,
             'category_id'  => $categoryId,
+            'tags'         => $tags,
             'gmt_modified' => date('Y-m-d H:i:s')
         ], "id=?", [$id]);
     }

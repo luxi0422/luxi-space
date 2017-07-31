@@ -18,7 +18,7 @@ class Blog
         ];
     }
 
-    public static function filter($subject, $content, $categoryId)
+    public static function filter($subject, $content, $categoryId, $tags)
     {
         $subject = strip_tags($subject);
         $subject = StringUtil::jsonSafeFilter($subject);
@@ -45,17 +45,19 @@ class Blog
         if (empty($categoryInfo)) {
             throw new UserException("你选的分类不存在", 404);
         }
-        return [$subject, $content, $categoryId];
+        $tags = str_replace('，', ',', $tags);
+        $tags = preg_replace('/\s+/', ',', $tags);
+        return [$subject, $content, $categoryId, $tags];
     }
 
-    public static function create($subject, $content, $categoryId)
+    public static function create($subject, $content, $categoryId, $tags)
     {
-        list($subject, $content, $categoryId) = self::filter($subject, $content, $categoryId);
-        $id = BlogModel::create($subject, $content, $categoryId);
+        list($subject, $content, $categoryId, $tags) = self::filter($subject, $content, $categoryId, $tags);
+        $id = BlogModel::create($subject, $content, $categoryId, $tags);
         return BlogModel::readById($id);
     }
 
-    public static function update($id, $subject, $content, $categoryId)
+    public static function update($id, $subject, $content, $categoryId, $tags)
     {
         $id = intval($id);
         if (empty($id)) {
@@ -69,8 +71,8 @@ class Blog
 
         $backUpId = Backup::createByUpdate(BlogModel::TABLE_NAME, $id, $blogInfo, 0);
         if ($backUpId) {
-            list($subject, $content, $categoryId) = self::filter($subject, $content, $categoryId);
-            BlogModel::update($id, $subject, $content, $categoryId);
+            list($subject, $content, $categoryId) = self::filter($subject, $content, $categoryId, $tags);
+            BlogModel::update($id, $subject, $content, $categoryId, $tags);
         }
 
         return BlogModel::readById($id);
@@ -90,5 +92,15 @@ class Blog
     public static function clearCategory($categoryId)
     {
         return BlogModel::clearCategory($categoryId);
+    }
+
+    public static function readByTag($page, $tag, $limit)
+    {
+        $list  = BlogModel::readByTag($page, $tag, $limit);
+        $count = BlogModel::countByTag($tag);
+        return [
+            'list'  => $list,
+            'count' => $count
+        ];
     }
 }
