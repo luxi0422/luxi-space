@@ -5,7 +5,7 @@ use ant\request;
 use app\lib\UserException;
 use app\modules\luxi\service\Blog as BlogService;
 
-class login extends base
+class in extends base
 {
     function ajaxPost()
     {
