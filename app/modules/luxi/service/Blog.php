@@ -29,7 +29,6 @@ class Blog
             throw new UserException("标题长度应该在1 - 40之间", 410);
         }
 
-        $content = strip_tags($content);
         $content = StringUtil::jsonSafeFilter($content);
         $content = trim($content);
         if (empty($content)) {
