@@ -3,6 +3,7 @@ namespace app\modules\luxi\rs;
 
 use ant\action;
 use ant\request;
+use app\lib\UserException;
 use app\modules\luxi\service\Message as MessageService;
 
 class base extends action
@@ -32,5 +33,13 @@ class base extends action
     protected function jsonResponseError($code, $msg)
     {
         $this->jsonResponse($code, '', $msg);
+    }
+
+    protected function checkLogin()
+    {
+        session_start();
+        if (empty($_SESSION['user'])) {
+            throw new UserException("请先登录");
+        }
     }
 }
