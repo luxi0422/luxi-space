@@ -5,8 +5,12 @@ use ant\request;
 use app\lib\UserException;
 use app\modules\luxi\service\Blog as BlogService;
 
-class in extends base
+class login extends base
 {
+    function post(){
+        $this->ajaxPost();
+    }
+
     function ajaxPost()
     {
         $userName         = 'luxi';

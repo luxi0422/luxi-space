@@ -8,6 +8,26 @@ use app\modules\luxi\service\Message as MessageService;
 
 class base extends action
 {
+    function post()
+    {
+        $this->ajaxPost();
+    }
+
+    function get()
+    {
+        $this->ajaxGet();
+    }
+
+    function put()
+    {
+        $this->ajaxPut();
+    }
+
+    function delete()
+    {
+        $this->ajaxDelete();
+    }
+
     protected function jsonResponse($code, $data, $msg)
     {
         $data = [
