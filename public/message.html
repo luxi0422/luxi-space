@@ -12,36 +12,43 @@
 </head>
 <body>
     <div class="bg">
+        <ul>
+            <li><a href="http://luxi.space" target="_blank">主页</a></li>
+            <li><a href="http://luxi.space/list.html" target="_blank">作品</a></li>
+            <li><a href="http://luxi.space/space.html" target="_blank">空间</a></li>
+        </ul>
         <div class="wrapper">
             <div class="message-background"></div>
             <form>
-                <input type="text" name="username" placeholder="姓名">
-                <div class="vertical"></div>
-                <textarea placeholder="给我留言" name="words"></textarea>
+                <input type="text" name="username" placeholder="你的名字"><br>
+                <textarea placeholder="来了就说点啥吧..." name="words" onchange="this.value=this.value.substring(0, 400)" onkeydown="this.value=this.value.substring(0, 400)" onkeyup="this.value=this.value.substring(0, 400)" ></textarea>
                 <input type="submit">
                 <div style="clear:both"></div>
             </form>
             <div class="data">
 
             </div>
+            <div class="pages">点击加载更多</div>
         </div>
-        <ul>
-            <li><a href="#">主页</a></li>
-            <li class="line"></li>
-            <li><a href="#">作品</a></li>
-            <li class="line"></li>
-            <li><a href="#">笔记</a></li>
-            <li class="line"></li>
-            <li><a href="#">空间</a></li>
-        </ul>
     </div>
-
-
+    <div class="login"></div>
+    <div class="login-z">站长<br>登录</div>
+    <div class="adminLogin">
+        <div>×</div>
+        <p>站长登录</p>
+        <form>
+            <input type="text" name="name" placeholder="请输入暗号">
+            <input type="submit">
+        </form>
+    </div>
+    <div class="top"></div>
+    <div class="top-z">回到<br>顶端</div>
 <template id="message-tpl" style="display: none;">
     <div class="message" style="display: none;">
-        <div class="name">{{name}}</div>
-        <div class="vertical"></div>
+        <div>×</div>
+        <div class="name">{{name}}：</div>
         <div class="words">{{message}}</div>
+        <div class="date">{{gmt_create}}</div>
         <div style="clear:both"></div>
     </div>
 </template>

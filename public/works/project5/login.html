@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="keywords" content="website-making, design">
+	<meta name="description" content="We simplified every aspect of building a beautiful branded website—so you can share your work easily and get back to making what you love.">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Virb ﹥ Log In</title>
+	<link rel="icon" href="images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<div class="upper">
+		<a href="#"><img src="images/logo.png" alt="logo"></a>
+		<p>If you don't have an account,<br>
+		<a href="http://luxi.space/works/project5/register.html">sign up for your free 10 day trial.</a></p>
+	</div>
+	<div class="login">
+		<form action="#" method="get" onsubmit="return checkForm()">
+			<span>Email Address</span><br>
+			<div id="p1">
+				<input class="inp1" type="text" name="email" required>
+				<span id="p1s"></span>
+				<li style="clear:both"></li>
+			</div>
+			<span>Password</span>
+			<a href="#">Forgot Password?</a>
+			<div id="p2">
+				<input class="inp2" type="password" name="pwd" required>
+				<span id="p2s"></span>
+				<li style="clear:both"></li>
+			</div>
+			<button>Log In</button>
+			<label><input class="stay" type="checkbox" name="stay" value="1" checked>
+			<span>Stay Logged In</span></label>
+		</form>
+	</div>
+	<script src="js/login.js"></script>
+</body>
+</html>
