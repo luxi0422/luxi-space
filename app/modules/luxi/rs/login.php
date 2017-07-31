@@ -2,6 +2,7 @@
 namespace app\modules\luxi\rs;
 
 use ant\request;
+use app\lib\UserException;
 use app\modules\luxi\service\Blog as BlogService;
 
 class login extends base
@@ -15,6 +16,8 @@ class login extends base
         if ($userName == $userPostUserName && $password == md5($userPostPassword . "kevinJPC@!")) {
             session_start();
             $_SESSION['user'] = 1;
+        } else {
+            throw new UserException("用户名密码错误", 410);
         }
     }
 }

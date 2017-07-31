@@ -12,6 +12,11 @@ class Blog extends Base
         return self::db()->selectOne("select * from " . self::TABLE_NAME . " where id = ? order by id desc", $id);
     }
 
+    static function readByTag($tag)
+    {
+
+    }
+
     static function read($page, $categoryId = 0, $limit = 20)
     {
         $page       = max(1, $page);
