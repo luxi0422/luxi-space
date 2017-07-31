@@ -37,7 +37,7 @@ class blog extends base
         $subject    = request::post('subject')->trim()->val();
         $content    = request::post('content')->trim()->val();
         $tags       = request::post('tags')->trim()->val();
-        $categoryId = request::post('cateogry_id')->int()->val();
+        $categoryId = request::post('category_id')->int()->val();
         $blogInfo   = BlogService::create($subject, $content, $categoryId, $tags);
         $this->jsonResponseSuccess($blogInfo);
     }
