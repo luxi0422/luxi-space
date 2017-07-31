@@ -10,6 +10,6 @@ class logout extends base
     {
         session_start();
         unset($_SESSION['user']);
-
+        $this->jsonResponseSuccess("退出成功");
     }
 }
