@@ -8,6 +8,12 @@ use app\modules\luxi\service\Message as MessageService;
 
 class base extends action
 {
+    function init($path)
+    {
+        parent::init($path);
+        //session_set_cookie_params(86400 * 3, '/','');
+    }
+
     function post()
     {
         $this->ajaxPost();
@@ -59,7 +65,7 @@ class base extends action
     {
         session_start();
         if (empty($_SESSION['user'])) {
-            throw new UserException("请先登录", 401);
+            //throw new UserException("请先登录", 401);
         }
     }
 }
