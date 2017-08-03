@@ -126,7 +126,7 @@ $(".adminLogin form").submit(function(){
     return false;
 });
 
-//管理员删除留言
+//删除留言
 $(".data").delegate(".message .del","click",function(data){
     console.log(this.dataset.message);
     var that = this;
