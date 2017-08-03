@@ -271,4 +271,9 @@ class request
     {
         return self::$instance->request('put', $key);
     }
+
+    static function delete($key = 'put')
+    {
+        return self::$instance->request('put', $key);
+    }
 }
