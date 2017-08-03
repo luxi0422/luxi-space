@@ -23,9 +23,9 @@ function insertMessage(messageInfo, needAnimate) {
 }
 
 //点击提交
-$("form").submit(function(){
+$(".wrapper form").submit(function(){
     var messageInfo = {
-        name: $("form input:first-child").val(),
+        name: $(".wrapper form input:first-child").val(),
         message: $("textarea").val()
     };
     $.post('http://luxi.space/api/message',messageInfo,function(obj){
@@ -75,36 +75,69 @@ $("form").submit(function(){
 
     //回到顶端
 var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-$(".top").mouseenter(
+$(".top-z").mouseenter(
     function(){
-        $(".top").stop().fadeOut(500);
-        $(".top-z").stop().css("display","block");
+        $(".top-z").stop().animate({"opacity":"1"});
     }
 );
 $(".top-z").mouseleave(
      function(){
-         $(".top").stop().fadeIn(500);
-         $(".top-z").stop().css("display","none");
+         $(".top-z").stop().animate({"opacity":"0"});
      }
 ).click(function(){
     $('html,body').animate({scrollTop:0},1000);
 });
 
-//登录
-$(".login").mouseenter(
+//登录样式
+$(".login-z").mouseenter(
     function(){
-        $(".login").stop().fadeOut(500);
-        $(".login-z").stop().css("display","block");
+        $(".login-z").stop().animate({"opacity":"1"});
     }
 );
 $(".login-z").mouseleave(
     function(){
-        $(".login").stop().fadeIn(500);
-        $(".login-z").stop().css("display","none");
+        $(".login-z").stop().animate({"opacity":"0"});
     }
 ).click(function(){
     $(".adminLogin").toggle();
 });
 $(".adminLogin div").click(function(){
     $(".adminLogin").css("display","none");
+});
+
+//登录
+$(".adminLogin form").submit(function(){
+    var username = $(".adminLogin .username").val();
+    var password = $(".adminLogin .password").val();
+    $.ajax({
+        type:"post",
+        url:"http://luxi.space/api/login",
+        data:{username:username,password:password},
+        dataType:"json",
+        success:function(obj){
+            if(obj.code != 200){
+                alert(obj.msg);
+            }else{
+                $(".message div:first-child").css("display","block");
+                $(".adminLogin").css("display","none");
+            }
+        }
+    });
+    return false;
+});
+
+//删除留言
+$(".data").delegate(".message .del","click",function(data){
+    console.log(this.dataset.message);
+    var that = this;
+    $.ajax({
+        type:"delete",
+        url:"http://luxi.space/api/message",
+        dataType:"json",
+        data:{id:that.dataset.message},
+        success:function(){
+            console.log(that);
+            $(that).parent().remove();
+        }
+    })
 });

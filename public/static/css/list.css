@@ -106,30 +106,6 @@ body{
 .main .sidebar .sideNav ul li a:hover{
     color:#4D96A6;
 }
-.login{
-    height:64px;
-    width:64px;
-    background:url("../../static/image/btfly_1.png");
-    transform:rotatez(25deg);
-    cursor:pointer;
-    position:absolute;
-    top:50%;
-    left:20%;
-}
-.login-z{
-    height:60px;
-    width:60px;
-    cursor:pointer;
-    line-height:30px;
-    text-align:center;
-    display:none;
-    color:#808080;
-    font-weight:bold;
-    border:1px solid #808080;
-    position:absolute;
-    top:50%;
-    left:20%;
-}
 .top{
     height:64px;
     width:64px;
@@ -138,53 +114,22 @@ body{
     cursor:pointer;
     position:absolute;
     top:35%;
-    left:65%;
+    left:55%;
 }
 .top-z{
-    height:60px;
-    width:60px;
+    height:70px;
+    width:70px;
     cursor:pointer;
-    line-height:30px;
+    line-height:35px;
     text-align:center;
-    display:none;
     color:#808080;
     font-weight:bold;
     border:1px solid #808080;
     position:absolute;
     top:35%;
-    left:65%;
-}
-.adminLogin{
-    width:200px;
-    height:150px;
-    border:1px solid #FA8072;
-    background-color:#F0F7FC;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-    font-size:16px;
-    display:none;
-}
-.adminLogin div{
-    font-size:20px;
-    float:right;
-    padding:5px 5px;
-    cursor:pointer;
-}
-.adminLogin p{
-    margin-top:30px;
-    font-weight:bold;
-}
-.adminLogin form input:last-of-type{
-    background:none;
-    border:1px solid #FA8072;
-    outline:none;
-    height:25px;
-    width:50px;
-    margin-top:10px;
-    cursor:pointer;
+    left:54%;
+    opacity:0;
+    background:#F5FFFA;
 }
 .main .sidebarSmall{
     display:none;
@@ -230,14 +175,12 @@ body{
     .main .sidebarSmall{
         display:block;
     }
-    .main .sidebarSmall .login,.main .sidebarSmall .login-z{
-        position:fixed;
-        top:50%;
-        left:5%;
-    }
     .main .sidebarSmall .top,.main .sidebarSmall .top-z{
         position:fixed;
         top:60%;
         left:80%;
+    }
+    .main .sidebarSmall .top-z{
+        left:78%;
     }
 }

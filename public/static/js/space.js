@@ -18,7 +18,6 @@ var vm = new Vue({
     router
 }).$mount(".switch");
 
-
 //导航栏滚动改变
 window.onscroll = function(){
     var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
@@ -86,3 +85,11 @@ function play(){
 
 //分页
 $('#pageTool').Paging({pagesize:10,count:100});
+
+//登录样式
+$(".login").click(function(){
+    $(".adminLogin").toggle();
+});
+$(".adminLogin div").click(function(){
+    $(".adminLogin").css("display","none");
+});
