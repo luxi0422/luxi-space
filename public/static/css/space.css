@@ -31,9 +31,6 @@ body{
     font-size:40px;
     font-weight:bold;
 }
-.nav ul li a:hover{
-
-}
 .nav ul li form input{
     border:none;
     outline:none;
@@ -127,6 +124,7 @@ body{
     position:fixed;
     top:10%;
     left:68%;
+    z-index: 1000;
     display:none;
 }
 .main .sidebar .sideNav div{
@@ -156,16 +154,26 @@ body{
 }
 .main .sidebar .sideTabs{
     width:80%;
-    height:300px;
-    border:1px solid black;
     margin:40px auto;
+    height:280px;
+}
+.main .sidebar .sideTabs a{
+    display:inline-block;
+    border:1px solid gray;
     border-radius:3px;
+    font-size:12px;
+    padding:3px 5px;
+    margin-bottom:5px;
+}
+.main .sidebar .sideTabs a:hover{
+    background:#6495ED;
+    color:#fff;
 }
 .main .sidebar .sideNews{
     width:80%;
     margin:0 auto;
 }
-.main .sidebar .sideNews p,.main .sidebar .sideTime p:first-child{
+.main .sidebar .sideNews p,.main .sidebar .sideTabs p,.main .sidebar .sideTime p:first-child{
     border-bottom:3px solid #D3D3D3;
     padding:10px 0;
     font-weight:bold;
@@ -187,6 +195,76 @@ body{
     border:1px solid gray;
     padding:5px 5px;
     display:inline-block;
+}
+
+/*文本编辑框*/
+form.text{
+    width:80%;
+    margin:50px auto;
+}
+form.text .text-wrapper{
+    width:70%;
+}
+
+form.text input{
+    cursor:pointer;
+    border:none;
+    outline:none;
+    background:#FF9900;
+    color:#fff;
+    font-size:16px;
+    line-height:20px;
+    padding:5px 20px;
+    border-radius:3px;
+    margin:30px auto;
+    display:none;
+}
+
+.login {
+    width:100px;
+    margin:0 auto;
+    border-radius:3px;
+    margin-bottom:50px;
+    text-align:center;
+    padding:5px 10px;
+    background:#FF9900;
+    color:#fff;
+    cursor:pointer;
+}
+.adminLogin {
+    width:200px;
+    height:200px;
+    border:1px solid #FA8072;
+    background-color:#F0F7FC;
+    position:fixed;
+    top:50%;
+    left:50%;
+    z-index: 1000;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    font-size:16px;
+    display:none;
+}
+.adminLogin div{
+    font-size:20px;
+    float:right;
+    padding:5px 5px;
+    cursor:pointer;
+}
+.adminLogin p{
+    margin-top:30px;
+    font-weight:bold;
+}
+.adminLogin form input{
+    margin-top:10px;
+}
+.adminLogin form input:last-of-type{
+    background:none;
+    border:1px solid #FA8072;
+    outline:none;
+    height:25px;
+    width:50px;
+    cursor:pointer;
 }
 
 /*分页*/
@@ -226,4 +304,51 @@ body{
     cursor: default;
     border:none;
     color:#ddd;
+}
+
+/*小屏*/
+@media (max-width:768px){
+    .wrapper{
+        background:none;
+    }
+    .main .sidebar{
+        display:none;
+    }
+    .wrapper .nav,.nav ul{
+        width:100%;
+        padding:0;
+    }
+    .nav ul li{
+        padding:0 10px;
+    }
+    .nav ul li a{
+        font-size:20px;
+    }
+    .nav ul li form input:first-child{
+        width:50%;
+    }
+    .nav ul li form input:last-child{
+        width:20%;
+        cursor:pointer;
+    }
+    .main {
+        width: 100%;
+        margin-top: 0;
+    }
+    .main .content{
+        width:90%;
+    }
+    .main .content .section .details{
+        width:100%;
+    }
+    .ui-paging-container li{
+        display: inline-block;
+        padding:2px 3px;
+        margin-left: 5px;
+        color:#666;
+        font-size:14px;
+    }
+    form.text .text-wrapper{
+        width:100%;
+    }
 }

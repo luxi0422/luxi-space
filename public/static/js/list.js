@@ -14,36 +14,15 @@ window.onscroll = function(){
 
 //回到顶端
 var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-$(".top").mouseenter(
+$(".top-z").mouseenter(
     function(){
-        $(".top").stop().fadeOut(500);
-        $(".top-z").stop().css("display","block");
+        $(".top-z").stop().animate({"opacity":"1"});
     }
 );
 $(".top-z").mouseleave(
     function(){
-        $(".top").stop().fadeIn(500);
-        $(".top-z").stop().css("display","none");
+        $(".top-z").stop().animate({"opacity":"0"});
     }
 ).click(function(){
     $('html,body').animate({scrollTop:0},1000);
-});
-
-//登录
-$(".login").mouseenter(
-    function(){
-        $(".login").stop().fadeOut(500);
-        $(".login-z").stop().css("display","block");
-    }
-);
-$(".login-z").mouseleave(
-    function(){
-        $(".login").stop().fadeIn(500);
-        $(".login-z").stop().css("display","none");
-    }
-).click(function(){
-    $(".adminLogin").toggle();
-});
-$(".adminLogin div").click(function(){
-    $(".adminLogin").css("display","none");
 });
