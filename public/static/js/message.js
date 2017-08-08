@@ -128,6 +128,7 @@ $(".adminLogin form").submit(function(){
 
 //删除留言
 $(".data").delegate(".message .del","click",function(data){
+    console.log(this);
     console.log(this.dataset.message);
     var that = this;
     $.ajax({

@@ -90,3 +90,17 @@ $(".adminLogin form").submit(function(){
     });
     return false;
 });
+
+//新文章显示在详情页
+$.ajax({
+    url:"http://luxi.space/api/blog",
+    type:"get",
+    dataType:"json",
+    data:{"id":window.location.href.match(/id=(\d+)/)[1]},
+    success:function(obj){
+        console.log(obj);
+        $(".main .content-wrap .article-title").html(obj.data.subject);
+        $(".main .content-wrap .article-tags").html("标签："+obj.data.tags);
+        $(".main .content-wrap .article-content").html(obj.data.content);
+    }
+});

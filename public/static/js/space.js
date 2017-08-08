@@ -93,3 +93,80 @@ $(".login").click(function(){
 $(".adminLogin div").click(function(){
     $(".adminLogin").css("display","none");
 });
+
+//登录
+$(".adminLogin form").submit(function(){
+    var username = $(".adminLogin .username").val();
+    var password = $(".adminLogin .password").val();
+    $.ajax({
+        type:"post",
+        url:"http://luxi.space/api/login",
+        data:{username:username,password:password},
+        dataType:"json",
+        success:function(obj){
+            if(obj.code != 200){
+                alert(obj.msg);
+            }else{
+                $("form.text").css("display","block");
+                $(".adminLogin").css("display","none");
+                $(".login").css("display","none");
+                $(".delete").css("display","block");
+            }
+        }
+    });
+    return false;
+});
+
+//插入文章
+$("form.text").submit(function(){
+   var textInfo = {
+       subject:$("form.text input.text-title").val(),
+       tags:$("form.text input.text-tags").val(),
+       content:ue.getContent(),
+       category_id:"1"
+   };
+    $.post('http://luxi.space/api/blog',textInfo,function(obj){
+        if(obj.code != 200) {
+            alert(obj.msg);
+        } else {
+            window.location.href="read.html?id="+obj.data.id;
+        }
+    },'json');
+   return false;
+});
+
+//获取列表
+var blogDom = $(".tabs .work");
+var workTemp = $("#workTemp").html();
+$.getJSON("http://luxi.space/api/blog?page=1&limit=10",function(data){
+    for(var i = 0; i<data.data.list.length; i++){
+        insertBlog(data.data.list[i]);
+    }
+});
+
+function insertBlog(messageInfo){
+    var blogHtml = workTemp.replace(/\{\{(.+?)\}\}/g,function($0,$1){
+        return messageInfo[$1];
+    });
+    blogDom.append($(blogHtml));
+    $(blogHtml).show();
+}
+
+//删除按钮
+$(".work").delegate(".details .delete","click",function(data){
+    var that = this;
+    $.ajax({
+        type:"delete",
+        url:"http://luxi.space/api/blog",
+        dataType:"json",
+        data:{id:that.dataset.message},
+        success:function(){
+            $(that).parent().remove();
+        }
+    })
+});
+
+//阅读原文按钮跳转
+$("div#test").click(function(){
+    console.log("111");
+});
