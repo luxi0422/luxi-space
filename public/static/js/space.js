@@ -84,6 +84,9 @@ $(".adminLogin form").submit(function(){
             if(obj.code != 200){
                 alert(obj.msg);
             }else{
+                var date = new Date();
+                date.setTime(date.getTime()+3600*1000);
+                document.cookie += "username=luxi;expires="+date.toUTCString();
                 $("form.text").css("display","block");
                 $(".adminLogin").css("display","none");
                 $(".login").css("display","none");
@@ -173,10 +176,7 @@ $(".sidebar .sideTabs a").click(function(){
     $(".work").html("");
 });
 
-//保持登录状态
-var date = new Date();
-date.setTime(date.getTime()+3600*1000);
-document.cookie += "username=luxi;expires="+date.toUTCString();
+//读取cookie
 function getCookie(name){
     var arr = document.cookie.split(";");
     for(var i = 0; i<arr.length; i++){
@@ -186,4 +186,10 @@ function getCookie(name){
         }
     }
 }
-getCookie("username");
+console.log(getCookie("username"));
+if(getCookie("username") == "luxi"){
+    $("form.text").css("display","block");
+    $(".adminLogin").css("display","none");
+    $(".login").css("display","none");
+    $(".delete").css("display","block");
+}
