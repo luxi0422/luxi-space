@@ -186,4 +186,4 @@ function getCookie(name){
         }
     }
 }
-getCookie(username);
+getCookie("username");
