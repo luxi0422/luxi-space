@@ -65,7 +65,7 @@ class base extends action
     {
         session_start();
         if (empty($_SESSION['user'])) {
-            //throw new UserException("请先登录", 401);
+            throw new UserException("请先登录", 401);
         }
     }
 }
