@@ -17,28 +17,27 @@
                 <li><a href="http://luxi.space">主页</a></li>
                 <li><a href="http://luxi.space/list.html">作品</a></li>
                 <li><a href="http://luxi.space/message.html">留言</a></li>
+                <!--未来的搜索框
                 <li>
                     <form class="search">
-                        <input type="text" name="search"><input type="submit" value="搜索">
+                        <input type="text" name="search"><input class="searchBtn" type="submit" value="搜索">
                     </form>
                 </li>
+                -->
             </ul>
         </div>
         <div class="main">
             <div class="content">
-                <div class="switch">
-                    <div class="tabs">
-                        <div class="work"></div>
-                    </div>
-                </div>
+                <div class="work"></div>
                 <template id="workTemp">
                     <div class="section">
                         <div class="details">
                             <div class="delete" data-message="{{id}}">×</div>
                             <h2>{{subject}}</h2>
-                            <p>{{content}}</p>
-                            <span>分类：{{tags}}</span>
-                            <div class="readAll">阅读原文</div>
+                            <div class="preview">{{content}}</div>
+                            <span>...</span>
+                            <div class="tags">分类：{{tags}}</div>
+                            <div class="readAll" data-message="{{id}}">阅读原文</div>
                         </div>
                     </div>
                 </template>
@@ -54,6 +53,7 @@
                 <div class="sideTabs">
                     <p>分类标签：</p>
                     <a href="#">学习</a>
+                    <a href="#">初学</a>
                     <a href="#">生活</a>
                     <a href="#">HTML</a>
                     <a href="#">前端</a>
@@ -66,13 +66,13 @@
                     <a href="#">ajax</a>
                 </div>
                 <div class="sideNews">
-                    <p>最新文章</p>
+                    <p>热门文章</p>
                     <ul>
-                        <li><a href="#">1.test it's a test</a></li>
-                        <li><a href="#">2.test it's a test</a></li>
-                        <li><a href="#">3.test it's a test</a></li>
-                        <li><a href="#">4.test it's a test</a></li>
-                        <li><a href="#">5.test it's a test</a></li>
+                        <li><a href="http://localhost:63342/luxi-space/public/read.html?id=45">1.JS数组</a></li>
+                        <li><a href="http://localhost:63342/luxi-space/public/read.html?id=44">2.JS循环和函数</a></li>
+                        <li><a href="http://localhost:63342/luxi-space/public/read.html?id=40">3.CSS3新增属性、动画</a></li>
+                        <li><a href="http://localhost:63342/luxi-space/public/read.html?id=41">4.CSS3新布局和响应式布局</a></li>
+                        <li><a href="http://localhost:63342/luxi-space/public/read.html?id=36">5.CSS定位、低版本IE的兼容</a></li>
                     </ul>
                 </div>
 

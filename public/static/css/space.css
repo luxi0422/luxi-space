@@ -22,10 +22,11 @@ body{
     border-right:2px solid #26606D;
     padding:0 20px;
 }
+/* 未来的搜索框
 .nav ul li:last-of-type{
     border:none;
     line-height:50px;
-}
+}*/
 .nav ul li a{
     color:#26606D;
     font-size:40px;
@@ -55,12 +56,9 @@ body{
 .main .content{
     width:70%;
 }
-.main .content .switch .work{
+.main .content .work{
     padding:10px 40px;
     color:#505050;
-}
-.main .content .tabs{
-    margin-top:50px;
 }
 .main .content .section{
     display:flex;
@@ -72,12 +70,24 @@ body{
     padding:20px 0;
 }
 .main .content .section .details h2{
-    font-size:16px;
-    cursor:pointer;
+    font-size:18px;
+    /*color: #FF9900;*/
 }
-.main .content .section .details p{
+.main .content .section .details .preview{
     color:#505050;
     font-size:14px;
+    height:100px;
+    line-height:20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+}
+.main .content .section .details .tags{
+    font-size:14px;
+    font-weight:bold;
+    margin-top:10px;
+    /*color: #FF9900;*/
 }
 .main .content .section .details div.readAll{
     background: #FF9900;
@@ -88,6 +98,7 @@ body{
     color:#fff;
     font-size:14px;
     cursor:pointer;
+    margin-top:20px;
 }
 .main .content .section .details div.delete {
     border:1px solid #000;
@@ -99,6 +110,11 @@ body{
     cursor:pointer;
     text-align:center;
     display:none;
+}
+.main .content .section .details span,.main .content .section .details p{
+    background:transparent;
+    margin:0;
+    padding:0;
 }
 .main .sidebar {
     width:30%;
