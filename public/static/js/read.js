@@ -91,7 +91,7 @@ $(".adminLogin form").submit(function(){
     return false;
 });
 
-//新文章显示在详情页
+// 新文章显示在详情页
 $.ajax({
     url:"http://luxi.space/api/blog",
     type:"get",
