@@ -22,12 +22,12 @@ body{
     border-right:2px solid #26606D;
     padding:0 20px;
 }
-.nav ul li a{
+.nav ul li a {
     color:#26606D;
     font-size:40px;
     font-weight:bold;
 }
-.main{
+.main {
     width:80%;
     margin:0 auto;
     margin-top:150px;
@@ -35,19 +35,20 @@ body{
     flex-flow:row nowrap;
     justify-content: space-around;
 }
-.main .content{
+.main .content-wrap{
     width:70%;
     margin-top:30px;
 }
-.main .content p{
+.main .content-wrap p{
     border-bottom:3px solid #D3D3D3;
     text-align:center;
     font-weight:bold;
     font-size:20px;
     padding-bottom:10px;
 }
-.main .content .article{
+.main .content-wrap .article-content{
     padding:10px 10px;
+
 }
 .main .sidebar{
     width:30%;

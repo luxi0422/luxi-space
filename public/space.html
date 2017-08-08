@@ -28,37 +28,17 @@
             <div class="content">
                 <div class="switch">
                     <div class="tabs">
-                        <router-link to="/life"><div class="life">生活</div></router-link>
-                        <router-link to="/work"><div class="work">学习</div></router-link>
-                        <div style="clear:both"></div>
+                        <div class="work"></div>
                     </div>
-                    <router-view></router-view>
                 </div>
-                <template id="lifeTemp">
-                    <div class="section">
-                        <div class="image"><img src=""></div>
-                        <div class="details">
-                            <h2><a href="#">{{title}}</a></h2>
-                            <p>发布时间：{{title}}</p>
-                            <p>{{article}}</p>
-                            <span>分类：{{tabs}}</span>
-                            <div>
-                                <a href="http://luxi.space/read.html" target="_blank">阅读原文</a>
-                            </div>
-                        </div>
-                    </div>
-                </template>
                 <template id="workTemp">
                     <div class="section">
-                        <div class="image"><a href="#"><img src="./static/image/test.jpg"></a></div>
                         <div class="details">
-                            <h2><a href="#">TEST</a></h2>
-                            <p>发布时间：2016年7月27日</p>
-                            <p>这是一段示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，示例示例示例，</p>
-                            <p>分类：学习</p>
-                            <div>
-                                <a href="http://luxi.space/read.html" target="_blank">阅读原文</a>
-                            </div>
+                            <div class="delete" data-message="{{id}}">×</div>
+                            <h2>{{subject}}</h2>
+                            <p>{{content}}</p>
+                            <span>分类：{{tags}}</span>
+                            <div class="readAll">阅读原文</div>
                         </div>
                     </div>
                 </template>
@@ -74,24 +54,16 @@
                 <div class="sideTabs">
                     <p>分类标签：</p>
                     <a href="#">学习</a>
-                    <a href="#">学习</a>
-                    <a href="#">学习</a>
-                    <a href="#">学习</a>
-                    <a href="#">学习</a>
                     <a href="#">生活</a>
-                    <a href="#">生活</a>
-                    <a href="#">生活</a>
-                    <a href="#">生活</a>
-                    <a href="#">撸猫</a>
-                    <a href="#">撸猫</a>
-                    <a href="#">撸猫</a>
-                    <a href="#">撸猫</a>
-                    <a href="#">撸猫</a>
-                    <a href="#">花花</a>
-                    <a href="#">花花</a>
-                    <a href="#">花花</a>
-                    <a href="#">花花</a>
-                    <a href="#">花花</a>
+                    <a href="#">HTML</a>
+                    <a href="#">前端</a>
+                    <a href="#">CSS</a>
+                    <a href="#">JS&jQuery</a>
+                    <a href="#">node.js</a>
+                    <a href="#">mongodb</a>
+                    <a href="#">es6</a>
+                    <a href="#">VUE</a>
+                    <a href="#">ajax</a>
                 </div>
                 <div class="sideNews">
                     <p>最新文章</p>
@@ -115,24 +87,26 @@
         </div>
         <form class="text" action="#" method="post">
             <div class="text-wrapper">
+                <input class="text-title" type="text" name="title" placeholder="请输入标题"><br>
+                <input class="text-tags" type="text" name="tags" placeholder="请输入标签"><br>
                 <!-- 加载编辑器的容器 -->
                 <script id="container" name="content" type="text/plain"></script>
-                <input type="submit" value="发表">
+                <input class="submit" type="submit" value="发表">
             </div>
         </form>
-        <div class="login">登录后可发表</div>
+        <div class="login">登录以发表</div>
         <div class="adminLogin">
             <div>×</div>
             <p>站长登录</p>
             <form>
-                <input type="text" name="username" placeholder="ID">
-                <input type="password" name="password" placeholder="密码">
+                <input type="text" class="username" name="username" placeholder="ID">
+                <input type="password" class="password" name="password" placeholder="密码">
                 <input type="submit" value="提交">
             </form>
         </div>
     </div>
 
-    <!-- 配置文件 -->
+    <!--配置文件-->
     <script type="text/javascript" src="./static/text/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
     <script type="text/javascript" src="./static/text/ueditor.all.js"></script>
@@ -140,7 +114,6 @@
     <script type="text/javascript">
         var ue = UE.getEditor('container');
     </script>
-
     <script src="static/js/vue.js"></script>
     <script src="static/js/vue-router.js"></script>
     <script src="static/js/jquery.min.js"></script>
