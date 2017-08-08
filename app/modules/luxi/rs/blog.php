@@ -15,10 +15,13 @@ class blog extends base
     {
         $page       = request::get('page')->int(true)->val();
         $limit      = request::get('limit')->int(true)->val();
+        $id         = request::get('id')->int(true)->val();
         $categoryId = request::get('category')->int(true)->val();
         $tag        = request::get('tag')->trim()->val();
 
-        if (!empty($tag)) {
+        if (!empty($id)) {
+            $result = BlogService::readById($id);
+        } else if (!empty($tag)) {
             $result = BlogService::readByTag($page, $tag, $limit);
         } else {
             $result = BlogService::read($page, $categoryId, $limit);

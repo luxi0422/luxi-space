@@ -102,4 +102,10 @@ class Blog
             'count' => $count
         ];
     }
+
+    public static function readById($id)
+    {
+        $blogInfo = BlogModel::readById($id);
+        return $blogInfo;
+    }
 }
