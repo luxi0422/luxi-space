@@ -1,23 +1,3 @@
-//选项卡切换路由
-var lifeRouter = {
-    path:"/life",
-    component:{
-        template:"#lifeTemp"
-    }
-};
-var workRouter = {
-    path:"/work",
-    component:{
-        template:"#workTemp"
-    }
-};
-var router = new VueRouter({
-    routes:[{path:"/",redirect:"/life"},lifeRouter,workRouter]
-});
-var vm = new Vue({
-    router
-}).$mount(".switch");
-
 //导航栏滚动改变
 window.onscroll = function(){
     var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
@@ -83,9 +63,6 @@ function play(){
     }
 }
 
-//分页
-$('#pageTool').Paging({pagesize:10,count:100});
-
 //登录样式
 $(".login").click(function(){
     $(".adminLogin").toggle();
@@ -136,13 +113,27 @@ $("form.text").submit(function(){
 });
 
 // 获取列表
-var blogDom = $(".tabs .work");
+var blogDom = $(".work");
 var workTemp = $("#workTemp").html();
-$.getJSON("http://luxi.space/api/blog?page=1&limit=10",function(data){
-    for(var i = 0; i<data.data.list.length; i++){
-        insertBlog(data.data.list[i]);
+
+(function(){
+    var first = true;
+    function loadList(page ,limit){
+        blogDom.html('');
+        $.getJSON("http://luxi.space/api/blog",{
+            page:page,limit:limit
+        },function(data){
+            if(first){
+                first = false;
+                $('#pageTool').Paging({pagesize:limit,count:data.data.count,callback:loadList});
+            }
+            for(var i = 0; i<data.data.list.length; i++){
+                insertBlog(data.data.list[i]);
+            }
+        });
     }
-});
+    loadList(1,10);
+})();
 
 function insertBlog(messageInfo){
     var blogHtml = workTemp.replace(/\{\{(.+?)\}\}/g,function($0,$1){
@@ -167,6 +158,22 @@ $(".work").delegate(".details .delete","click",function(data){
 });
 
 //阅读原文按钮跳转
-$("div#test").click(function(){
-    console.log("111");
+$(".work").delegate(".details .readAll","click",function(data){
+    //console.log(this.dataset.message);
+    window.location.href="read.html?id="+this.dataset.message;
 });
+
+//按照标签搜索文章内容
+$(".sidebar .sideTabs a").click(function(){
+    $.getJSON("http://luxi.space/api/blog?page=1&limit=10",{"tag":$(this).html()},function(data){
+        for(var i = 0; i<data.data.list.length; i++){
+            insertBlog(data.data.list[i]);
+        }
+    });
+    $(".work").html("");
+});
+
+//保持登录状态
+var date = new Date();
+date.setTime(date.getTime()+3600*1000);
+document.cookie += "username=luxi;expires="+date.toUTCString();

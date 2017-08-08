@@ -83,8 +83,9 @@ $(".adminLogin form").submit(function(){
             if(obj.code != 200){
                 alert(obj.msg);
             }else{
-                alert("111");
                 $(".adminLogin").css("display","none");
+                $("form.text").css("display","block");
+                $(".login").css("display","none");
             }
         }
     });
@@ -103,4 +104,51 @@ $.ajax({
         $(".main .content-wrap .article-tags").html("标签："+obj.data.tags);
         $(".main .content-wrap .article-content").html(obj.data.content);
     }
+});
+
+//编辑功能-获取文章标题标签内容
+$("form.text .text-wrapper .editBtn").click(function(){
+    var that = this;
+    $.ajax({
+        type:"get",
+        url:"http://luxi.space/api/blog",
+        data:{"id":window.location.href.match(/id=(\d+)/)[1]},
+        dataType:"json",
+        success:function(obj){
+            console.log(obj);
+            if(obj.code != 200){
+                alert(obj.msg);
+            }else{
+                $("form.text .text-title").val(obj.data.subject);
+                $("form.text .text-tags").val(obj.data.tags);
+                ue.setContent(obj.data.content);
+            }
+        }
+    });
+});
+//编辑功能-提交改动
+$("form.text").submit(function(){
+    var editInfo = {
+        id:window.location.href.match(/id=(\d+)/)[1],
+        subject:$("form.text input.text-title").val(),
+        tags:$("form.text input.text-tags").val(),
+        content:ue.getContent(),
+        category_id:"1"
+    };
+    $.ajax({
+        type:"put",
+        url:"http://luxi.space/api/blog",
+        data:editInfo,
+        dataType:"json",
+        success:function(obj){
+            if(obj.code != 200) {
+                alert(obj.msg);
+            } else{
+                $(".main .article-title").html(obj.data.subject);
+                $(".main .article-tags").html(obj.data.tags);
+                $(".main .article-content").html(obj.data.content);
+            }
+        }
+    });
+    return false;
 });
