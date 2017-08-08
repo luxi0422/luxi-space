@@ -20,6 +20,7 @@ class login extends base
         if ($userName == $userPostUserName && $password == md5($userPostPassword . "kevinJPC@!")) {
             session_start();
             $_SESSION['user'] = 1;
+            setcookie('username','luxi');
             $this->jsonResponseSuccess("登录成功");
         } else {
             throw new UserException("用户名密码错误", 410);
