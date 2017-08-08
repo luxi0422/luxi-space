@@ -117,7 +117,7 @@ $(".adminLogin form").submit(function(){
     return false;
 });
 
-//插入文章
+// 插入文章
 $("form.text").submit(function(){
    var textInfo = {
        subject:$("form.text input.text-title").val(),
@@ -135,7 +135,7 @@ $("form.text").submit(function(){
    return false;
 });
 
-//获取列表
+// 获取列表
 var blogDom = $(".tabs .work");
 var workTemp = $("#workTemp").html();
 $.getJSON("http://luxi.space/api/blog?page=1&limit=10",function(data){
@@ -152,7 +152,7 @@ function insertBlog(messageInfo){
     $(blogHtml).show();
 }
 
-//删除按钮
+// 删除按钮
 $(".work").delegate(".details .delete","click",function(data){
     var that = this;
     $.ajax({
