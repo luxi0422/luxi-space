@@ -177,3 +177,13 @@ $(".sidebar .sideTabs a").click(function(){
 var date = new Date();
 date.setTime(date.getTime()+3600*1000);
 document.cookie += "username=luxi;expires="+date.toUTCString();
+
+function getCookie(username){
+    var arr = document.cookie.split(";");
+    for(var i = 0; i<arr.length; i++){
+        var temp = arr[i].split("=");
+        if(temp[0] == username){
+            return temp[1];
+        }
+    }
+}
