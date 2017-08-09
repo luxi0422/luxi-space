@@ -105,27 +105,6 @@ $(".adminLogin div").click(function(){
     $(".adminLogin").css("display","none");
 });
 
-//登录
-$(".adminLogin form").submit(function(){
-    var username = $(".adminLogin .username").val();
-    var password = $(".adminLogin .password").val();
-    $.ajax({
-        type:"post",
-        url:"http://luxi.space/api/login",
-        data:{username:username,password:password},
-        dataType:"json",
-        success:function(obj){
-            if(obj.code != 200){
-                alert(obj.msg);
-            }else{
-                $(".message div:first-child").css("display","block");
-                $(".adminLogin").css("display","none");
-            }
-        }
-    });
-    return false;
-});
-
 //删除留言
 $(".data").delegate(".message .del","click",function(data){
     console.log(this);

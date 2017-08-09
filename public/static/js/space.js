@@ -63,40 +63,6 @@ function play(){
     }
 }
 
-//登录样式
-$(".login").click(function(){
-    $(".adminLogin").toggle();
-});
-$(".adminLogin div").click(function(){
-    $(".adminLogin").css("display","none");
-});
-
-//登录
-$(".adminLogin form").submit(function(){
-    var username = $(".adminLogin .username").val();
-    var password = $(".adminLogin .password").val();
-    $.ajax({
-        type:"post",
-        url:"http://luxi.space/api/login",
-        data:{username:username,password:password},
-        dataType:"json",
-        success:function(obj){
-            if(obj.code != 200){
-                alert(obj.msg);
-            }else{
-                var date = new Date();
-                date.setTime(date.getTime()+3600*1000);
-                document.cookie += "username=luxi;expires="+date.toUTCString();
-                $("form.text").css("display","block");
-                $(".adminLogin").css("display","none");
-                $(".login").css("display","none");
-                $(".delete").css("display","block");
-            }
-        }
-    });
-    return false;
-});
-
 // 插入文章
 $("form.text").submit(function(){
    var textInfo = {
@@ -160,6 +126,14 @@ $(".work").delegate(".details .delete","click",function(data){
     })
 });
 
+//登录样式
+$(".login").click(function () {
+  $(".adminLogin").toggle();
+});
+$(".adminLogin div").click(function () {
+  $(".adminLogin").css("display", "none");
+});
+
 //阅读原文按钮跳转
 $(".work").delegate(".details .readAll","click",function(data){
     //console.log(this.dataset.message);
@@ -176,20 +150,9 @@ $(".sidebar .sideTabs a").click(function(){
     $(".work").html("");
 });
 
-//读取cookie
-function getCookie(name){
-    var arr = document.cookie.split(";");
-    for(var i = 0; i<arr.length; i++){
-        var temp = arr[i].split("=");
-        if(temp[0] == name){
-            return temp[1];
-        }
-    }
-}
-console.log(getCookie("username"));
-if(getCookie("username") == "luxi"){
-    $("form.text").css("display","block");
-    $(".adminLogin").css("display","none");
-    $(".login").css("display","none");
-    $(".delete").css("display","block");
-}
+checkLogin(function(){
+  $("form.text").css("display","block");
+  $(".adminLogin").css("display","none");
+  $(".login").css("display","none");
+  $(".delete").css("display","block");
+});
