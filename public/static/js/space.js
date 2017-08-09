@@ -110,14 +110,14 @@ function insertBlog(messageInfo){
   });
   blogDom.append($(blogHtml));
   $(blogHtml).show();
+  if(isLogin) {
+    $(".message .del").show();
+  }
 }
 
 // 删除按钮
 $(".work").delegate(".details .delete","click",function(data){
   var that = this;
-  if(isLogin) {
-    $(this).show();
-  }
 
   $.ajax({
     type:"delete",

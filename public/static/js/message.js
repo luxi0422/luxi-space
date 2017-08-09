@@ -5,6 +5,10 @@ $.getJSON('http://luxi.space/api/message?page=1&limit=20',function(data){
     for(var i =0; i<data.data.list.length; i++) {
         insertMessage(data.data.list[i]);
     }
+
+    if(isLogin) {
+        $(".message .del").show();
+    }
 });
 
 //插入一条新留言时显示在留言列表顶端
@@ -66,6 +70,10 @@ $(".wrapper form").submit(function(){
                 } else {
                     $(".wrapper .pages").show();
                 }
+
+                if(isLogin) {
+                    $(".message .del").show();
+                }
             },
             error: function (xhr, type) {
                 alert("出错啦");
@@ -108,9 +116,6 @@ $(".adminLogin div").click(function(){
 //删除留言
 $(".data").delegate(".message .del","click",function(data){
   var that = this;
-  if(isLogin) {
-    $(this).show();
-  }
   $.ajax({
     type:"delete",
     url:"http://luxi.space/api/message",
