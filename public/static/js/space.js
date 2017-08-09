@@ -115,6 +115,10 @@ function insertBlog(messageInfo){
 // 删除按钮
 $(".work").delegate(".details .delete","click",function(data){
   var that = this;
+  if(isLogin) {
+    $(this).show();
+  }
+
   $.ajax({
     type:"delete",
     url:"http://luxi.space/api/blog",
@@ -150,7 +154,9 @@ $(".sidebar .sideTabs a").click(function(){
   $(".work").html("");
 });
 
+var isLogin = false;
 checkLogin(function(){
+  isLogin = true;
   $("form.text").css("display","block");
   $(".adminLogin").css("display","none");
   $(".login").css("display","none");
