@@ -50,3 +50,8 @@
 
   window.checkLogin = checkLogin;
 })();
+
+var isLogin = false;
+checkLogin(function(){
+  isLogin = true;
+});

@@ -154,9 +154,7 @@ $(".sidebar .sideTabs a").click(function(){
   $(".work").html("");
 });
 
-var isLogin = false;
 checkLogin(function(){
-  isLogin = true;
   $("form.text").css("display","block");
   $(".adminLogin").css("display","none");
   $(".login").css("display","none");
