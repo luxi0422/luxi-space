@@ -59,4 +59,6 @@
     }
     return false;
   }
+
+  window.checkLogin = checkLogin;
 })();
