@@ -1,18 +1,6 @@
 (function () {
   function setCookie(key, val) {
-    var cookie = document.cookie;
-    var cookieList = cookie.split(";");
-    var cookies = {};
-    for (var i = 0; i < cookieList.length; i++) {
-      cookie = cookieList[i].split("=");
-      cookies[cookie[0]] = cookie[1];
-    }
-    cookies[key] = val;
-    var tmp = [];
-    for (i in cookies) {
-      tmp.push(i + '=' + cookies[i]);
-    }
-    document.cookie = tmp.join(";");
+    document.cookie = key + "=" + val;
   }
 
   //登录
