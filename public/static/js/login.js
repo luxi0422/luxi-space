@@ -7,12 +7,12 @@
       cookie = cookieList[i].split("=");
       cookies[cookie[0]] = cookie[1];
     }
-    cookies[key] = value;
+    cookies[key] = val;
     var tmp = [];
     for (i in cookies) {
       tmp.push(i + '=' + cookies[i]);
     }
-    document.cookie = tmp.join(";");
+    document.cookie = tmp.join("; ");
   }
 
   //登录
