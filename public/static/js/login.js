@@ -12,7 +12,7 @@
     for (i in cookies) {
       tmp.push(i + '=' + cookies[i]);
     }
-    document.cookie = tmp.join("; ");
+    document.cookie = tmp.join(";");
   }
 
   //登录
