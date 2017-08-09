@@ -92,7 +92,7 @@ $(".adminLogin form").submit(function(){
     return false;
 });
 
-// 新文章显示在详情页
+// 新文章点击发表后跳转到详情页并显示
 $.ajax({
     url:"http://luxi.space/api/blog",
     type:"get",
@@ -106,7 +106,7 @@ $.ajax({
     }
 });
 
-//编辑功能-获取文章标题标签内容
+//编辑功能-在文本编辑框中获取文章标题标签内容
 $("form.text .text-wrapper .editBtn").click(function(){
     var that = this;
     $.ajax({
@@ -126,7 +126,8 @@ $("form.text .text-wrapper .editBtn").click(function(){
         }
     });
 });
-//编辑功能-提交改动
+
+// 编辑功能-提交改动
 $("form.text").submit(function(){
     var editInfo = {
         id:window.location.href.match(/id=(\d+)/)[1],

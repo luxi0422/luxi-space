@@ -8,7 +8,7 @@ window.onscroll = function(){
     }
 };
 
-//时钟
+//日历
 function t(){
     var date = new Date();
     $(".main .sideTime .day").html(date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日 "+week());
@@ -83,7 +83,7 @@ $(".adminLogin form").submit(function(){
         success:function(obj){
             if(obj.code != 200){
                 alert(obj.msg);
-            }else{
+            }else{  //写入cookie
                 var date = new Date();
                 date.setTime(date.getTime()+3600*1000);
                 document.cookie += "username=luxi;expires="+date.toUTCString();
@@ -92,7 +92,10 @@ $(".adminLogin form").submit(function(){
                 $(".login").css("display","none");
                 $(".delete").css("display","block");
             }
-        }
+        },
+        // xhrFields: {
+        //     withCredentials: true
+        // }
     });
     return false;
 });
@@ -115,10 +118,10 @@ $("form.text").submit(function(){
    return false;
 });
 
-// 获取列表
+// 获取文章列表
 var blogDom = $(".work");
 var workTemp = $("#workTemp").html();
-
+// 设置分页
 (function(){
     var first = true;
     function loadList(page ,limit){
@@ -137,7 +140,7 @@ var workTemp = $("#workTemp").html();
     }
     loadList(1,10);
 })();
-
+// 继续获取文章列表
 function insertBlog(messageInfo){
     var blogHtml = workTemp.replace(/\{\{(.+?)\}\}/g,function($0,$1){
         return messageInfo[$1];

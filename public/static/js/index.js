@@ -55,25 +55,5 @@ $(".donts li:first-of-type").html(todoList[donts[0]]+"，");
 $(".donts li:nth-of-type(2)").html(todoList[donts[1]]+"，");
 $(".donts li:last-of-type").html(todoList[donts[2]]);
 
-// var counter = 0,total = 0,num,errorNum = 0;
-// for(var year = 2016;year < 2220;year++){
-//     for(var month = 1 ;month < 13;month ++){
-//         for(var day = 1;day <= 31;day++){
-//             dateNum = year +''+month+''+day;
-//             num = getRandomFromTodoList(dateNum);
-//             if(num >= 50) {
-//                 errorNum++;
-//                 //console.log(dateNum);
-//                 //break;
-//             }
-//             total +=num;
-//                 counter++;
-//         }
-//     }
-// }
-//console.log(errorNum);
-//console.log(total / counter);
-// Math.pow(result,33)%todoList.length;
-
 var m = num % saying.length;
 $(".date p:last-of-type").html(saying[m]);
