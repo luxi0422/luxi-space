@@ -61,7 +61,9 @@ $(".wrapper form").submit(function(){
                 var result = "";
                 var data = response.data.list;
                 for (var i = 0; i < data.length; i++) {
-                    result += '<div class="message"><div class="name">'+data[i].name+'：</div><div class="words">'+data[i].message+'</div><div class="date">'+data[i].gmt_create+'</div></div>';
+                    result += '<div class="message">'+
+                        '<div class="del" data-message="'+data[i].id+'">×</div>'
+                      +'<div class="name">'+data[i].name+'：</div><div class="words">'+data[i].message+'</div><div class="date">'+data[i].gmt_create+'</div></div>';
                 }
                 $(".data").append(result);
 
@@ -126,4 +128,8 @@ $(".data").delegate(".message .del","click",function(data){
       $(that).parent().remove();
     }
   })
+});
+
+checkLogin(function(){
+    $('.login,.login-z').hide();
 });
