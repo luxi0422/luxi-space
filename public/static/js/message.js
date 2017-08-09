@@ -110,6 +110,9 @@ $(".data").delegate(".message .del","click",function(data){
     console.log(this);
     console.log(this.dataset.message);
     var that = this;
+    if(isLogin) {
+        $(this).show();
+    }
     $.ajax({
         type:"delete",
         url:"http://luxi.space/api/message",
@@ -120,4 +123,9 @@ $(".data").delegate(".message .del","click",function(data){
             $(that).parent().remove();
         }
     })
+});
+
+var isLogin = false;
+checkLogin(function(){
+  isLogin = true;
 });
