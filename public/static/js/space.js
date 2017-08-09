@@ -111,7 +111,7 @@ function insertBlog(messageInfo){
   blogDom.append($(blogHtml));
   $(blogHtml).show();
   if(isLogin) {
-    $(".message .del").show();
+    $(".delete").show();
   }
 }
 
